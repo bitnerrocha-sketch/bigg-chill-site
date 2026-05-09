@@ -1,0 +1,1787 @@
+---
+const giftCardLink = "https://app.squareup.com/gift/MLQY19DJP25AS/order";
+
+const heroSlides = [
+  {
+    image: "/hero-flavor-1.JPG",
+    label: "Featured Flavor",
+    flavor: "Strawberry Cheesecake",
+    note: "Creamy, fruity & oh-so dreamy.",
+  },
+  {
+    image: "/hero-flavor-2.JPG",
+    label: "Small-Batch Favorite",
+    flavor: "Cookie Dough",
+    note: "A classic scoop made the Bigg Chill way.",
+  },
+  {
+    image: "/hero-flavor-3.JPG",
+    label: "Rotating Monthly",
+    flavor: "Seasonal Scoops",
+    note: "New flavors worth coming back for.",
+  },
+  {
+    image: "/hero-flavor-4.JPG",
+    label: "Made In Cody",
+    flavor: "Handcrafted Ice Cream",
+    note: "Fresh, thoughtful, and made with care.",
+  },
+  {
+    image: "/hero-flavor-5.JPG",
+    label: "Fan Favorite",
+    flavor: "Bigg Chill Classics",
+    note: "The flavors people ask for again and again.",
+  },
+];
+
+const flavors = [
+  "Vanilla Bean",
+  "Strawberry Honey Balsamic",
+  "White Chocolate Huckleberry",
+  "Honey Comb",
+  "Mint Chocolate Chunk",
+  "Midnight Cookies",
+  "Chocolate Brownie",
+  "Birthday Cake",
+  "Coffee",
+  "Mixed Berry Tart",
+  "Biscoff Cheesecake",
+  "Coffee Maple Bar",
+  "Raspberry Fudge",
+  "Lemon Raspberry",
+  "Stuffed PB Cup",
+  "Dubai Chocolate Bar",
+  "Bourbon Maple Pecan",
+  "Tequila Keylime Pie",
+  "Cookie Monster",
+];
+
+const tickerFlavors = [...flavors, ...flavors];
+---
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>The Bigg Chill | Handcrafted Ice Cream in Cody, Wyoming</title>
+    <meta
+      name="description"
+      content="The Bigg Chill serves handcrafted small-batch ice cream in Cody, Wyoming with rotating flavors, gift cards, catering, and a love for the local community."
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,700;0,800;0,900;1,800;1,900&family=Pacifico&family=Oswald:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --teal: #365b6d;
+        --coral: #ea605f;
+        --cream: #ffece0;
+        --cream-light: #fff8ef;
+        --pink-soft: #feb9e3;
+        --pink-hot: #fe019b;
+        --pink-muted: #f5c6c8;
+        --lavender: #9a86a4;
+        --white: #ffffff;
+        --black: #000000;
+        --shadow: 0 18px 45px rgba(54, 91, 109, 0.14);
+        --border: rgba(54, 91, 109, 0.28);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Oswald", sans-serif;
+        color: var(--teal);
+        background:
+          radial-gradient(circle at top left, rgba(254, 185, 227, 0.22), transparent 32%),
+          linear-gradient(180deg, #fff8ef 0%, #ffece0 52%, #fff8ef 100%);
+      }
+
+      img {
+        max-width: 100%;
+        display: block;
+      }
+
+      a {
+        color: inherit;
+      }
+
+      .page-shell {
+        background-image:
+          linear-gradient(rgba(54, 91, 109, 0.035) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(54, 91, 109, 0.035) 1px, transparent 1px);
+        background-size: 34px 34px;
+      }
+
+      /* NAV */
+      .nav {
+        background: var(--cream-light);
+        border-bottom: 4px solid var(--coral);
+        padding: 6px clamp(18px, 5vw, 76px);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+
+      .brand {
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  width: 340px;
+  height: 135px;
+  overflow: hidden;
+}
+
+.nav-logo {
+  width: 340px;
+  height: auto;
+  display: block;
+  transform: translateY(10px);
+}
+
+      .brand-script {
+        font-family: "Pacifico", cursive;
+        font-size: 1.15rem;
+        margin-left: 38px;
+        margin-bottom: -7px;
+      }
+
+      .brand-main {
+        font-family: "Barlow Condensed", sans-serif;
+        font-size: clamp(2.1rem, 4vw, 3.4rem);
+        font-weight: 900;
+        text-transform: uppercase;
+        font-style: italic;
+        letter-spacing: 1px;
+        line-height: 0.85;
+      }
+
+      .brand-tag {
+        font-size: 0.78rem;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        margin-top: 4px;
+        color: var(--coral);
+      }
+
+      .desktop-links {
+        display: flex;
+        align-items: center;
+        gap: clamp(22px, 3vw, 42px);
+      }
+
+      .desktop-links a {
+        font-family: "Barlow Condensed", sans-serif;
+        text-decoration: none;
+        text-transform: uppercase;
+        font-size: 1.1rem;
+        font-weight: 900;
+        letter-spacing: 1.3px;
+        color: var(--teal);
+        position: relative;
+      }
+
+      .desktop-links a.active,
+      .desktop-links a:hover {
+        color: var(--coral);
+      }
+
+      .desktop-links a.active::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: -8px;
+        height: 3px;
+        background: var(--coral);
+        border-radius: 999px;
+      }
+
+      .menu-toggle {
+        display: none;
+        background: none;
+        border: none;
+        color: var(--teal);
+        font-size: 2.5rem;
+        cursor: pointer;
+      }
+
+      .mobile-menu {
+        position: fixed;
+        inset: 0;
+        background: var(--cream-light);
+        z-index: 999;
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .mobile-menu.open {
+        display: flex;
+      }
+
+      .close-menu {
+        position: absolute;
+        top: 28px;
+        right: 32px;
+        background: none;
+        border: none;
+        color: var(--teal);
+        font-size: 3rem;
+        cursor: pointer;
+      }
+
+      .mobile-links {
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+        text-align: center;
+      }
+
+      .mobile-links a {
+  color: var(--teal);
+  text-decoration: none;
+  font-family: "Oswald", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 400;
+  letter-spacing: 8px;
+  text-transform: uppercase;
+}
+
+      .mobile-links a:hover {
+        color: var(--coral);
+      }
+
+      /* GLOBAL COMPONENTS */
+      .retro-frame {
+        border: 2px solid rgba(234, 96, 95, 0.5);
+        border-radius: 22px;
+        position: relative;
+        box-shadow: inset 0 0 0 6px rgba(255, 248, 239, 0.55);
+      }
+
+      .script {
+        font-family: "Pacifico", cursive;
+        color: var(--coral);
+        font-weight: 400;
+      }
+
+      .section-kicker {
+        font-family: "Pacifico", cursive;
+        color: var(--coral);
+        font-size: clamp(1.25rem, 2.3vw, 1.8rem);
+        margin: 0 0 4px;
+      }
+
+      .section-title {
+        font-family: "Barlow Condensed", sans-serif;
+        text-transform: uppercase;
+        font-size: clamp(2.4rem, 5vw, 4.6rem);
+        line-height: 0.9;
+        letter-spacing: 4px;
+        margin: 0;
+        color: var(--teal);
+      }
+
+      .btn {
+        font-family: "Barlow Condensed", sans-serif;
+        background: var(--coral);
+        color: var(--white);
+        padding: 13px 24px;
+        text-decoration: none;
+        border-radius: 8px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 900;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        border: 2px solid var(--coral);
+        box-shadow: 0 5px 0 rgba(151, 63, 63, 0.35);
+        transition: 0.2s ease;
+      }
+
+      .btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 7px 0 rgba(151, 63, 63, 0.3);
+      }
+
+      .btn-outline {
+        background: var(--cream-light);
+        color: var(--teal);
+        border-color: var(--teal);
+        box-shadow: 0 5px 0 rgba(54, 91, 109, 0.22);
+      }
+
+      .divider {
+        max-width: 1120px;
+        margin: 0 auto;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, rgba(234, 96, 95, 0.42), transparent);
+      }
+
+      /* HERO */
+      .hero {
+        padding: clamp(18px, 3vw, 34px) clamp(16px, 4vw, 54px) 30px;
+      }
+
+      .hero-slider {
+        max-width: 1240px;
+        min-height: 620px;
+        margin: 0 auto;
+        overflow: hidden;
+        background: var(--pink-muted);
+        display: grid;
+        grid-template-columns: 0.85fr 1.15fr;
+        align-items: stretch;
+      }
+
+      .hero-copy {
+        position: relative;
+        z-index: 2;
+        padding: clamp(32px, 5vw, 68px);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        background:
+          radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.42), transparent 28%),
+          linear-gradient(90deg, rgba(255, 236, 224, 0.95), rgba(245, 198, 200, 0.78));
+      }
+
+      .hero-copy h1 {
+        margin: 0;
+      }
+
+      .hero-copy .script {
+        display: block;
+        font-size: clamp(1.9rem, 3.4vw, 3.1rem);
+        margin-bottom: 8px;
+      }
+
+      .hero-main {
+        font-family: "Barlow Condensed", sans-serif;
+        display: block;
+        font-size: clamp(3.9rem, 7.5vw, 7.4rem);
+        line-height: 0.82;
+        text-transform: uppercase;
+        font-weight: 900;
+        letter-spacing: 3px;
+        color: var(--teal);
+      }
+
+      .hero-memory {
+        font-family: "Pacifico", cursive;
+        display: block;
+        font-size: clamp(2.8rem, 5.5vw, 5.4rem);
+        line-height: 0.95;
+        color: var(--teal);
+        margin-top: 6px;
+      }
+
+      .hero-starline {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        color: var(--coral);
+        margin: 24px 0 18px;
+      }
+
+      .hero-starline::before,
+      .hero-starline::after {
+        content: "";
+        width: 72px;
+        height: 2px;
+        background: rgba(234, 96, 95, 0.48);
+      }
+
+      .hero-copy p {
+        max-width: 500px;
+        font-size: clamp(1rem, 1.4vw, 1.18rem);
+        line-height: 1.55;
+        margin: 0 0 24px;
+        color: #264957;
+      }
+
+      .hero-buttons {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 13px;
+      }
+
+      .hero-photo {
+        position: relative;
+        min-height: 620px;
+        overflow: hidden;
+        background: #f5c6c8;
+      }
+
+      .hero-slide {
+        position: absolute;
+        inset: 0;
+        opacity: 0;
+        transition: opacity 900ms ease;
+      }
+
+      .hero-slide.active {
+        opacity: 1;
+      }
+
+      .hero-slide img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .hero-photo::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(90deg, rgba(255, 236, 224, 0.34), transparent 32%),
+          radial-gradient(circle at 50% 50%, transparent 35%, rgba(54, 91, 109, 0.08));
+        pointer-events: none;
+      }
+
+      .slide-label {
+        position: absolute;
+        right: clamp(18px, 4vw, 44px);
+        bottom: clamp(22px, 4vw, 46px);
+        z-index: 3;
+        background: rgba(255, 248, 239, 0.94);
+        border: 2px solid rgba(54, 91, 109, 0.28);
+        box-shadow: var(--shadow);
+        border-radius: 10px;
+        padding: 18px 22px;
+        min-width: min(330px, calc(100% - 36px));
+        text-align: center;
+      }
+
+      .slide-label small {
+        display: block;
+        font-family: "Barlow Condensed", sans-serif;
+        text-transform: uppercase;
+        color: var(--teal);
+        letter-spacing: 2px;
+        font-weight: 900;
+        margin-bottom: 4px;
+      }
+
+      .slide-label strong {
+        display: block;
+        font-family: "Barlow Condensed", sans-serif;
+        color: var(--teal);
+        font-size: 1.7rem;
+        line-height: 0.95;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      .slide-label span {
+        display: block;
+        font-family: "Pacifico", cursive;
+        color: var(--coral);
+        font-size: 1rem;
+        margin-top: 6px;
+      }
+
+      .hero-arrow {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 4;
+        width: 46px;
+        height: 46px;
+        border-radius: 999px;
+        border: 2px solid rgba(54, 91, 109, 0.25);
+        background: rgba(255, 248, 239, 0.88);
+        color: var(--teal);
+        font-size: 2rem;
+        line-height: 1;
+        cursor: pointer;
+        display: grid;
+        place-items: center;
+      }
+
+      .hero-arrow:hover {
+        background: var(--white);
+      }
+
+      .hero-arrow.prev {
+        left: 18px;
+      }
+
+      .hero-arrow.next {
+        right: 18px;
+      }
+
+      .hero-dots {
+        position: absolute;
+        left: 50%;
+        bottom: 18px;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 10px;
+        z-index: 5;
+      }
+
+      .hero-dot {
+        width: 11px;
+        height: 11px;
+        padding: 0;
+        border-radius: 999px;
+        border: 2px solid var(--teal);
+        background: transparent;
+        cursor: pointer;
+      }
+
+      .hero-dot.active {
+        background: var(--teal);
+      }
+
+      /* INTRO */
+      .intro {
+        padding: 28px 20px 34px;
+        text-align: center;
+        background: rgba(255, 248, 239, 0.82);
+      }
+
+      .intro p {
+        max-width: 760px;
+        margin: 8px auto 0;
+        font-size: 1.1rem;
+        line-height: 1.55;
+        color: #264957;
+      }
+
+      /* OUR STORY */
+.our-story {
+  padding: clamp(54px, 7vw, 92px) clamp(16px, 4vw, 54px);
+  background:
+    radial-gradient(circle at 18% 22%, rgba(254, 1, 155, 0.18), transparent 28%),
+    radial-gradient(circle at 82% 72%, rgba(254, 185, 227, 0.32), transparent 32%),
+    linear-gradient(180deg, #fff6fb 0%, #ffe4f3 48%, #fff7fb 100%);
+}
+
+.our-story-inner {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: clamp(28px, 5vw, 54px);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.62), rgba(255, 230, 245, 0.56)),
+    #fff7fb;
+  border: 2px solid rgba(254, 1, 155, 0.5);
+  border-radius: 26px;
+  box-shadow:
+    0 28px 70px rgba(54, 91, 109, 0.11),
+    inset 0 0 0 7px rgba(255, 255, 255, 0.4);
+  position: relative;
+  overflow: hidden;
+}
+
+.our-story-inner::before {
+  content: "";
+  position: absolute;
+  inset: 14px;
+  border: 1px solid rgba(254, 1, 155, 0.28);
+  border-radius: 20px;
+  pointer-events: none;
+}
+
+.story-label-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 22px;
+  margin-bottom: 14px;
+  position: relative;
+  z-index: 1;
+}
+
+.story-line {
+  width: clamp(48px, 8vw, 92px);
+  height: 1px;
+  background: rgba(254, 1, 155, 0.68);
+}
+
+.story-label {
+  margin: 0;
+  font-family: "Barlow Condensed", sans-serif;
+  text-transform: uppercase;
+  color: var(--pink-hot);
+  letter-spacing: 5px;
+  font-size: clamp(1.15rem, 2vw, 1.55rem);
+  font-weight: 700;
+}
+
+.our-story-title {
+  position: relative;
+  z-index: 1;
+  margin: 0 0 clamp(34px, 5vw, 56px);
+  text-align: center;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(3rem, 7vw, 6.6rem);
+  line-height: 0.92;
+  letter-spacing: 3px;
+  font-weight: 400;
+  color: #1f3d4d;
+  text-transform: uppercase;
+}
+
+.story-layout {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr 0.78fr 1fr;
+  gap: clamp(24px, 4vw, 44px);
+  align-items: start;
+}
+
+.story-left,
+.story-right {
+  display: grid;
+  gap: clamp(24px, 3vw, 34px);
+}
+
+.story-photo {
+  width: 100%;
+  object-fit: cover;
+  border: 2px solid rgba(254, 1, 155, 0.62);
+  border-radius: 22px;
+  box-shadow: 0 18px 38px rgba(54, 91, 109, 0.14);
+  background: #fff;
+}
+
+.story-photo-family {
+  height: clamp(280px, 32vw, 380px);
+}
+
+.story-photo-machine {
+  height: clamp(260px, 29vw, 355px);
+}
+
+.story-photo-shop {
+  height: clamp(290px, 34vw, 405px);
+}
+
+.story-copy {
+  padding-top: 6px;
+  color: #233f4d;
+}
+
+.story-copy p {
+  margin: 0 0 24px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1rem, 1.4vw, 1.22rem);
+  line-height: 1.62;
+}
+
+.story-copy p:last-child {
+  margin-bottom: 0;
+}
+
+.story-copy span {
+  color: var(--pink-hot);
+  font-style: italic;
+}
+
+.copy-divider {
+  width: 112px;
+  height: 1px;
+  margin: 28px auto 28px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(254, 1, 155, 0.68),
+    transparent
+  );
+  position: relative;
+}
+
+.copy-divider::after {
+  content: "✦";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -52%);
+  background: #fff7fb;
+  color: var(--pink-hot);
+  padding: 0 10px;
+  font-size: 0.85rem;
+}
+
+.story-quote-box {
+  min-height: clamp(260px, 28vw, 350px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.78), transparent 48%),
+    linear-gradient(180deg, #ffd7ec, #fff0f8);
+  border: 2px solid rgba(254, 1, 155, 0.48);
+  border-radius: 24px;
+  padding: clamp(26px, 4vw, 44px);
+  text-align: center;
+  box-shadow: 0 18px 38px rgba(54, 91, 109, 0.1);
+}
+
+.story-quote-box p {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.85rem, 3vw, 3.2rem);
+  line-height: 1.15;
+  font-style: italic;
+  color: var(--pink-hot);
+}
+
+.quote-mark {
+  font-family: Georgia, "Times New Roman", serif;
+  color: var(--pink-hot);
+  font-size: clamp(2.2rem, 4vw, 4rem);
+  line-height: 0.75;
+  opacity: 0.8;
+}
+
+      /* FLAVOR TICKER */
+      .flavors {
+        padding: 36px 0 44px;
+        background: rgba(255, 236, 224, 0.75);
+        overflow: hidden;
+      }
+
+      .flavor-heading {
+        text-align: center;
+        margin-bottom: 18px;
+      }
+
+      .ticker-shell {
+        position: relative;
+        overflow: hidden;
+        border-top: 1px solid rgba(234, 96, 95, 0.35);
+        border-bottom: 1px solid rgba(234, 96, 95, 0.35);
+        padding: 18px 0;
+        background: rgba(255, 248, 239, 0.68);
+      }
+
+      .ticker-track {
+        display: flex;
+        width: max-content;
+        gap: 18px;
+        animation: ticker 34s linear infinite;
+      }
+
+      .ticker-shell:hover .ticker-track {
+        animation-play-state: paused;
+      }
+
+      .flavor-pill {
+        min-width: max-content;
+        padding: 13px 28px;
+        background: var(--cream-light);
+        border: 2px solid rgba(54, 91, 109, 0.42);
+        border-radius: 10px;
+        box-shadow: 0 5px 0 rgba(54, 91, 109, 0.12);
+        font-family: "Barlow Condensed", sans-serif;
+        font-weight: 900;
+        text-transform: uppercase;
+        letter-spacing: 1.2px;
+        color: var(--teal);
+      }
+
+      @keyframes ticker {
+        from {
+          transform: translateX(0);
+        }
+        to {
+          transform: translateX(-50%);
+        }
+      }
+
+      .flavor-cta {
+        text-align: center;
+        margin-top: 24px;
+      }
+
+      /* VISIT */
+      .visit {
+        padding: 54px 20px;
+      }
+
+      .visit-inner {
+        max-width: 1160px;
+        margin: 0 auto;
+        padding: clamp(24px, 4vw, 42px);
+        background: rgba(255, 248, 239, 0.85);
+        display: grid;
+        grid-template-columns: 0.8fr 1.05fr 0.8fr;
+        gap: 30px;
+        align-items: center;
+      }
+
+      .visit-copy p {
+        font-size: 1.05rem;
+        line-height: 1.55;
+        color: #264957;
+        margin: 14px 0 22px;
+      }
+
+      .visit-photo img {
+        width: 100%;
+        height: 280px;
+        object-fit: cover;
+        border-radius: 16px;
+        border: 2px solid rgba(54, 91, 109, 0.2);
+        box-shadow: var(--shadow);
+      }
+
+      .visit-info {
+        display: grid;
+        gap: 18px;
+      }
+
+      .info-row {
+        display: grid;
+        grid-template-columns: 42px 1fr;
+        gap: 14px;
+        align-items: start;
+      }
+
+      .info-icon {
+        width: 42px;
+        height: 42px;
+        border-radius: 999px;
+        border: 2px solid var(--coral);
+        color: var(--coral);
+        display: grid;
+        place-items: center;
+        font-size: 1.3rem;
+      }
+
+      .info-row h3 {
+        margin: 0 0 4px;
+        font-family: "Barlow Condensed", sans-serif;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-size: 1.25rem;
+        color: var(--teal);
+      }
+
+      .info-row p {
+        margin: 0;
+        color: #264957;
+        line-height: 1.4;
+      }
+
+      /* GIFT CARD */
+      .gift {
+        padding: 22px 20px 46px;
+      }
+
+      .gift-inner {
+        max-width: 1160px;
+        margin: 0 auto;
+        padding: clamp(28px, 4vw, 44px);
+        background:
+          radial-gradient(circle at 85% 50%, rgba(255, 255, 255, 0.55), transparent 23%),
+          linear-gradient(90deg, var(--pink-muted), var(--pink-soft));
+        display: grid;
+        grid-template-columns: 0.85fr 1.2fr 0.7fr;
+        gap: 28px;
+        align-items: center;
+        overflow: hidden;
+      }
+
+      .gift-card-graphic {
+        background: var(--cream-light);
+        color: var(--coral);
+        border: 2px solid rgba(54, 91, 109, 0.22);
+        border-radius: 14px;
+        padding: 28px 20px;
+        text-align: center;
+        transform: rotate(-5deg);
+        box-shadow: var(--shadow);
+        max-width: 290px;
+        margin: 0 auto;
+      }
+
+      .gift-card-graphic .small {
+        font-family: "Pacifico", cursive;
+        font-size: 1.1rem;
+      }
+
+      .gift-card-graphic .big {
+        display: block;
+        font-family: "Barlow Condensed", sans-serif;
+        font-weight: 900;
+        font-style: italic;
+        text-transform: uppercase;
+        font-size: 2.65rem;
+        line-height: 0.82;
+      }
+
+      .gift-card-graphic .gift-label {
+        margin-top: 16px;
+        display: block;
+        font-family: "Barlow Condensed", sans-serif;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        color: var(--teal);
+        font-weight: 900;
+      }
+
+      .gift-copy {
+        text-align: center;
+      }
+
+      .gift-copy p {
+        margin: 12px auto 20px;
+        max-width: 520px;
+        line-height: 1.5;
+        color: #264957;
+      }
+
+      .gift-scoop img {
+        width: 100%;
+        max-height: 240px;
+        object-fit: cover;
+        border-radius: 16px;
+        border: 2px solid rgba(54, 91, 109, 0.15);
+      }
+
+      /* SOCIAL */
+      .social {
+        padding: 20px 20px 56px;
+        text-align: center;
+      }
+
+      .social-strip {
+        max-width: 1160px;
+        margin: 24px auto 20px;
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        gap: 14px;
+      }
+
+      .social-strip img {
+        width: 100%;
+        height: 150px;
+        object-fit: cover;
+        border-radius: 14px;
+        box-shadow: 0 9px 20px rgba(54, 91, 109, 0.12);
+        border: 2px solid rgba(255, 248, 239, 0.9);
+      }
+
+      /* FOOTER */
+      .footer {
+        background:
+          radial-gradient(circle at 10% 10%, rgba(255, 255, 255, 0.12), transparent 24%),
+          #234b5b;
+        color: var(--white);
+        padding: 38px clamp(20px, 5vw, 74px) 22px;
+      }
+
+      .footer-inner {
+        max-width: 1160px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1.1fr 1fr 0.8fr 0.9fr;
+        gap: 34px;
+        align-items: start;
+        text-align: left;
+      }
+
+      .footer-brand {
+        color: var(--white);
+      }
+
+      .footer-brand .brand-script {
+        margin-left: 28px;
+      }
+
+      .footer-brand .brand-main {
+        font-size: 2.65rem;
+      }
+
+      .footer-brand .brand-tag {
+        color: var(--white);
+      }
+
+      .footer p {
+        margin: 0;
+        line-height: 1.5;
+        color: rgba(255, 255, 255, 0.86);
+      }
+
+      .footer h3 {
+        margin: 0 0 10px;
+        font-family: "Barlow Condensed", sans-serif;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        color: var(--white);
+      }
+
+      .footer a {
+        color: rgba(255, 255, 255, 0.86);
+        text-decoration: none;
+        display: block;
+        margin: 4px 0;
+      }
+
+      .footer a:hover {
+        color: var(--pink-soft);
+      }
+
+      .social-icons {
+        display: flex;
+        gap: 12px;
+        margin-top: 10px;
+      }
+
+      .social-icons a {
+        width: 34px;
+        height: 34px;
+        border-radius: 999px;
+        border: 1px solid rgba(255, 255, 255, 0.55);
+        display: grid;
+        place-items: center;
+        font-weight: 900;
+      }
+
+      .footer-bottom {
+        max-width: 1160px;
+        margin: 28px auto 0;
+        padding-top: 16px;
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+        text-align: center;
+        font-size: 0.9rem;
+        color: rgba(255, 255, 255, 0.72);
+      }
+
+      @media (max-width: 980px) {
+        .desktop-links {
+          display: none;
+        }
+
+        .menu-toggle {
+          display: block;
+        }
+
+        .hero-slider {
+          grid-template-columns: 1fr;
+          min-height: auto;
+        }
+
+        .hero-photo {
+          min-height: 430px;
+          order: -1;
+        }
+
+        .hero-copy {
+          text-align: center;
+          align-items: center;
+        }
+
+        .hero-starline {
+          justify-content: center;
+        }
+
+        .hero-buttons {
+          justify-content: center;
+        }
+
+        .story-layout {
+  grid-template-columns: 1fr 1fr;
+}
+
+.story-copy {
+  grid-column: 1 / -1;
+  max-width: 760px;
+  margin: 0 auto;
+  text-align: center;
+  order: -1;
+}
+
+.story-left {
+  order: 2;
+}
+
+.story-right {
+  order: 3;
+}
+        .visit-inner,
+        .gift-inner,
+        .footer-inner {
+          grid-template-columns: 1fr;
+          text-align: center;
+        }
+
+        .info-row {
+          max-width: 360px;
+          margin: 0 auto;
+          text-align: left;
+        }
+
+        .social-strip {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+
+      @media (max-width: 620px) {
+        .nav {
+          padding: 16px 18px;
+        }
+
+        .brand-script {
+          font-size: 0.95rem;
+          margin-left: 26px;
+        }
+
+        .brand-main {
+          font-size: 2.1rem;
+        }
+
+        .brand-tag {
+          font-size: 0.62rem;
+        }
+
+        .hero {
+          padding: 12px;
+        }
+
+        .hero-slider {
+          border-radius: 16px;
+        }
+
+        .hero-photo {
+          min-height: 310px;
+        }
+
+        .hero-copy {
+          padding: 30px 20px;
+        }
+
+        .hero-main {
+          font-size: 3.6rem;
+        }
+
+        .hero-memory {
+          font-size: 2.8rem;
+        }
+
+        .hero-buttons .btn {
+          width: 100%;
+        }
+
+        .slide-label {
+          left: 16px;
+          right: 16px;
+          bottom: 44px;
+          min-width: auto;
+          padding: 14px;
+        }
+
+        .slide-label strong {
+          font-size: 1.3rem;
+        }
+
+        .our-story {
+  padding: 42px 12px;
+}
+
+.our-story-inner {
+  padding: 28px 16px;
+  border-radius: 20px;
+}
+
+.our-story-inner::before {
+  inset: 9px;
+  border-radius: 16px;
+}
+
+.story-label-wrap {
+  gap: 12px;
+}
+
+.story-line {
+  width: 38px;
+}
+
+.story-label {
+  letter-spacing: 3px;
+}
+
+.our-story-title {
+  font-size: clamp(2.5rem, 12vw, 4rem);
+  letter-spacing: 1px;
+  margin-bottom: 30px;
+}
+
+.story-layout {
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+.story-copy {
+  text-align: left;
+}
+
+.story-copy p {
+  font-size: 1.02rem;
+  line-height: 1.62;
+}
+
+.story-photo-family,
+.story-photo-machine,
+.story-photo-shop {
+  height: 260px;
+}
+
+.story-quote-box {
+  min-height: auto;
+}
+
+.story-quote-box p {
+  font-size: 2rem;
+}
+.visit {
+  padding: 38px 12px;
+}
+
+.visit-inner {
+  padding: 24px 18px;
+  gap: 24px;
+  border-radius: 20px;
+}
+
+.visit-copy {
+  text-align: center;
+}
+
+.visit-copy .section-title {
+  font-size: clamp(2.8rem, 12vw, 4rem);
+  letter-spacing: 2px;
+}
+
+.visit-copy p {
+  font-size: 1rem;
+  margin: 14px auto 20px;
+}
+
+.visit-photo img {
+  height: 220px;
+  border-radius: 14px;
+}
+
+.visit-info {
+  width: 100%;
+  gap: 18px;
+}
+
+.info-row {
+  grid-template-columns: 1fr;
+  text-align: center;
+  gap: 8px;
+  max-width: 100%;
+}
+
+.info-icon {
+  margin: 0 auto;
+}
+
+.visit-info .btn {
+  width: 100%;
+}
+        .flavor-pill {
+          padding: 11px 20px;
+        }
+
+        .social-strip {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .social-strip img {
+          height: 128px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="page-shell">
+      <nav class="nav">
+        <a href="/" class="brand" aria-label="The Bigg Chill home">
+  <img src="/logo-transparent.png" alt="The Bigg Chill" class="nav-logo" />
+</a>
+
+        <div class="desktop-links">
+          <a href="/" class="active">Home</a>
+          <a href="/menu">Menu</a>
+          <a href="/catering">Catering</a>
+          <a href={giftCardLink} target="_blank">Gift Cards</a>
+        </div>
+
+        <button class="menu-toggle" id="menuToggle" aria-label="Open menu">
+          ☰
+        </button>
+      </nav>
+
+      <div class="mobile-menu" id="mobileMenu">
+        <button class="close-menu" id="closeMenu" aria-label="Close menu">×</button>
+
+        <div class="mobile-links">
+          <a href="/">Home</a>
+          <a href="/menu">Menu</a>
+          <a href="/catering">Catering</a>
+          <a href={giftCardLink} target="_blank">Gift Cards</a>
+        </div>
+      </div>
+
+      <!-- HERO -->
+      <section class="hero">
+        <div class="hero-slider retro-frame">
+          <div class="hero-copy">
+            <h1>
+              <span class="script">Handcrafted</span>
+              <span class="hero-main">Ice Cream</span>
+              <span class="hero-main">Made For</span>
+              <span class="hero-memory">Memories</span>
+            </h1>
+
+            <div class="hero-starline">★</div>
+
+            <p>
+              Artisan ice cream made with real ingredients, crafted with care,
+              and rooted in family and community.
+            </p>
+
+            <div class="hero-buttons">
+              <a href="#visit" class="btn">Visit The Shop</a>
+              <a href="/menu" class="btn btn-outline">View Menu</a>
+              <a href={giftCardLink} target="_blank" class="btn">Buy Gift Cards</a>
+            </div>
+          </div>
+
+          <div class="hero-photo" id="heroPhoto">
+            {
+              heroSlides.map((slide, index) => (
+                <div class={`hero-slide ${index === 0 ? "active" : ""}`} data-slide={index}>
+                  <img src={slide.image} alt={`${slide.flavor} from The Bigg Chill`} />
+                </div>
+              ))
+            }
+
+            <button class="hero-arrow prev" id="prevSlide" aria-label="Previous slide">‹</button>
+            <button class="hero-arrow next" id="nextSlide" aria-label="Next slide">›</button>
+
+            <div class="slide-label" id="slideLabel">
+              <small>{heroSlides[0].label}</small>
+              <strong>{heroSlides[0].flavor}</strong>
+              <span>{heroSlides[0].note}</span>
+            </div>
+
+            <div class="hero-dots" id="heroDots">
+              {
+                heroSlides.map((_, index) => (
+                  <button
+                    class={`hero-dot ${index === 0 ? "active" : ""}`}
+                    data-dot={index}
+                    aria-label={`Go to slide ${index + 1}`}
+                  />
+                ))
+              }
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- INTRO -->
+      <section class="intro">
+        <h2 class="section-kicker">Small-batch. Big heart.</h2>
+        <p>
+          We’re the McVey family, and we’re passionate about ice cream. From years
+          of traveling in search of the perfect scoop to creating our own unique
+          flavors, The Bigg Chill is our way of serving the community we love.
+        </p>
+      </section>
+
+      <div class="divider"></div>
+
+      <!-- OUR STORY -->
+<section class="our-story" id="our-story">
+  <div class="our-story-inner">
+    <div class="story-label-wrap">
+      <span class="story-line"></span>
+      <p class="story-label">Our Story</p>
+      <span class="story-line"></span>
+    </div>
+
+    <h2 class="our-story-title">Welcome To The Bigg Chill</h2>
+
+    <div class="story-layout">
+      <div class="story-left">
+        <img
+          src="/story-family.png"
+          alt="The McVey family at The Bigg Chill"
+          class="story-photo story-photo-family"
+        />
+
+        <div class="story-quote-box">
+          <div class="quote-mark">“</div>
+          <p>
+            Every flavor is<br />
+            a reflection of our<br />
+            family’s journey and<br />
+            dedication to the craft.
+          </p>
+          <div class="quote-mark">”</div>
+        </div>
+      </div>
+
+      <div class="story-copy">
+        <p>
+          We’re the McVey family, and we’re passionate about ice cream. For the
+          past 10 years, we’ve been traveling around the country on a mission to
+          find the perfect scoop.
+        </p>
+
+        <div class="copy-divider"></div>
+
+        <p>
+          Finally, after years of tasting, we invested in an American-made
+          professional ice cream machine and began creating and perfecting our
+          own unique flavors.
+        </p>
+
+        <p>
+          In the fall of 2022, the opportunity finally came to open up our very
+          own ice cream shop, The Bigg Chill. We were thrilled at the opportunity
+          to contribute to our community with a locally owned and operated store,
+          and not just another chain.
+        </p>
+
+        <p>
+          Now, the McVeys serve up our beloved handcrafted ice cream to the
+          community we love.
+          <span>
+            Every flavor is a reflection of our family’s journey and dedication
+            to the craft.
+          </span>
+        </p>
+
+        <p>
+          We can’t wait to share our story with you, one scoop at a time.
+        </p>
+      </div>
+
+      <div class="story-right">
+        <img
+          src="/story-machine.png"
+          alt="Handcrafted ice cream being made"
+          class="story-photo story-photo-machine"
+        />
+
+        <img
+          src="/shop-front.png"
+          alt="The Bigg Chill storefront in Cody Wyoming"
+          class="story-photo story-photo-shop"
+        />
+      </div>
+    </div>
+  </div>
+</section>
+
+      <!-- SIMPLE FLAVOR CAROUSEL -->
+      <section class="flavors">
+        <div class="flavor-heading">
+          <h2 class="section-kicker">Featured Flavors</h2>
+        </div>
+
+        <div class="ticker-shell" aria-label="Automatically scrolling flavor list">
+          <div class="ticker-track">
+            {
+              tickerFlavors.map((flavor) => (
+                <span class="flavor-pill">{flavor}</span>
+              ))
+            }
+          </div>
+        </div>
+
+        <div class="flavor-cta">
+          <a href="/menu" class="btn btn-outline">View Full Menu</a>
+        </div>
+      </section>
+
+      <!-- VISIT -->
+      <section class="visit" id="visit">
+        <div class="visit-inner retro-frame">
+          <div class="visit-copy">
+            <p class="section-kicker">Visit The Bigg Chill</p>
+            <h2 class="section-title">We’d Love To See You!</h2>
+            <p>
+              Come by our shop in beautiful Cody, Wyoming for a scoop or two.
+              We’re just waiting to make your day a little sweeter.
+            </p>
+            <a
+              href="https://maps.google.com?q=1321+Sheridan+Ave+Cody+WY"
+              target="_blank"
+              class="btn"
+            >
+              Plan Your Visit
+            </a>
+          </div>
+
+          <div class="visit-photo">
+            <img src="/shop-front.png" alt="The Bigg Chill storefront" />
+          </div>
+
+          <div class="visit-info">
+            <div class="info-row">
+              <div class="info-icon">⌖</div>
+              <div>
+                <h3>Location</h3>
+                <p>1321 Sheridan Ave<br />Cody, Wyoming</p>
+              </div>
+            </div>
+
+            <div class="info-row">
+              <div class="info-icon">◷</div>
+              <div>
+                <h3>Hours</h3>
+                <p>
+                  Sunday: 1–9 PM<br />
+                  Monday–Friday: 1–8:30 PM<br />
+                  Saturday: 1–9 PM
+                </p>
+              </div>
+            </div>
+
+            <div class="info-row">
+              <div class="info-icon">☎</div>
+              <div>
+                <h3>Contact</h3>
+                <p>
+                  (307) 250-7164<br />
+                  biggchillmanagment@gmail.com
+                </p>
+              </div>
+            </div>
+
+            <a
+              href="https://maps.google.com?q=1321+Sheridan+Ave+Cody+WY"
+              target="_blank"
+              class="btn btn-outline"
+            >
+              Get Directions
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- GIFT CARDS -->
+      <section class="gift">
+        <div class="gift-inner retro-frame">
+          <div class="gift-card-graphic">
+            <span class="small">The</span>
+            <span class="big">Bigg Chill</span>
+            <span class="gift-label">Gift Card</span>
+          </div>
+
+          <div class="gift-copy">
+            <p class="section-kicker">The Perfect Gift</p>
+            <h2 class="section-title">Scoops Of Happiness</h2>
+            <p>
+              Treat someone special to their favorite flavors. Gift cards are
+              available online and make every celebration a little sweeter.
+            </p>
+            <a href={giftCardLink} target="_blank" class="btn">Buy Gift Cards</a>
+          </div>
+
+          <div class="gift-scoop">
+            <img src="/hero-flavor-4.JPG" alt="A scoop of Bigg Chill ice cream" />
+          </div>
+        </div>
+      </section>
+
+      <!-- SOCIAL / COMMUNITY -->
+      <section class="social">
+        <p class="section-kicker">Community is Everything</p>
+        <h2 class="section-title">Share The Sweet Moments</h2>
+
+        <div class="social-strip">
+          <img src="/community-1.JPG" alt="Bigg Chill community moment 1" />
+          <img src="/community-2.jpg" alt="Bigg Chill community moment 2" />
+          <img src="/community-3.png" alt="Bigg Chill community moment 3" />
+          <img src="/community-4.png" alt="Bigg Chill community moment 4" />
+          <img src="/community-5.png" alt="Bigg Chill community moment 5" />
+          <img src="/community-6.png" alt="Bigg Chill community moment 6" />
+        </div>
+
+        <a href="https://www.instagram.com/the.bigg.chill/" target="_blank" class="btn">
+          Follow Us @thebiggchill
+        </a>
+      </section>
+
+      <!-- FOOTER -->
+      <footer class="footer">
+        <div class="footer-inner">
+          <div>
+            <div class="brand footer-brand">
+              <span class="brand-script">The</span>
+              <span class="brand-main">Bigg Chill</span>
+              <span class="brand-tag">Handcrafted Ice Cream</span>
+            </div>
+          </div>
+
+          <div>
+            <p>
+              Handcrafted ice cream made with real ingredients and a big scoop of
+              heart.
+            </p>
+          </div>
+
+          <div>
+            <h3>Quick Links</h3>
+            <a href="/">Home</a>
+            <a href="/menu">Menu</a>
+            <a href="/catering">Catering</a>
+            <a href={giftCardLink} target="_blank">Gift Cards</a>
+          </div>
+
+          <div>
+            <h3>Hours</h3>
+            <p>
+              Sunday: 1–9 PM<br />
+              Monday–Friday: 1–8:30 PM<br />
+              Saturday: 1–9 PM
+            </p>
+
+            <h3 style="margin-top: 18px;">Let’s Connect</h3>
+            <div class="social-icons">
+              <a href="https://www.instagram.com/the.bigg.chill/" target="_blank" aria-label="Instagram">◎</a>
+              <a href="https://www.facebook.com/The.Bigg.Chill307/" target="_blank" aria-label="Facebook">f</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          © The Bigg Chill Ice Cream | 1321 Sheridan Ave, Cody, Wyoming | Made in Cody, Wyoming
+        </div>
+      </footer>
+    </div>
+
+    <script>
+      const menuToggle = document.getElementById("menuToggle");
+      const mobileMenu = document.getElementById("mobileMenu");
+      const closeMenu = document.getElementById("closeMenu");
+
+      menuToggle?.addEventListener("click", () => {
+        mobileMenu.classList.add("open");
+      });
+
+      closeMenu?.addEventListener("click", () => {
+        mobileMenu.classList.remove("open");
+      });
+
+      const heroSlides = [
+        {
+          label: "Featured Flavor",
+          flavor: "Strawberry Cheesecake",
+          note: "Creamy, fruity & oh-so dreamy.",
+        },
+        {
+          label: "Small-Batch Favorite",
+          flavor: "Cookie Dough",
+          note: "A classic scoop made the Bigg Chill way.",
+        },
+        {
+          label: "Rotating Monthly",
+          flavor: "Seasonal Scoops",
+          note: "New flavors worth coming back for.",
+        },
+        {
+          label: "Made In Cody",
+          flavor: "Handcrafted Ice Cream",
+          note: "Fresh, thoughtful, and made with care.",
+        },
+        {
+          label: "Fan Favorite",
+          flavor: "Bigg Chill Classics",
+          note: "The flavors people ask for again and again.",
+        },
+      ];
+
+      const slides = Array.from(document.querySelectorAll(".hero-slide"));
+      const dots = Array.from(document.querySelectorAll(".hero-dot"));
+      const label = document.getElementById("slideLabel");
+      const prev = document.getElementById("prevSlide");
+      const next = document.getElementById("nextSlide");
+
+      let activeSlide = 0;
+      let slideTimer;
+
+      function showSlide(index) {
+        activeSlide = (index + slides.length) % slides.length;
+
+        slides.forEach((slide, slideIndex) => {
+          slide.classList.toggle("active", slideIndex === activeSlide);
+        });
+
+        dots.forEach((dot, dotIndex) => {
+          dot.classList.toggle("active", dotIndex === activeSlide);
+        });
+
+        const current = heroSlides[activeSlide];
+
+        if (label && current) {
+          label.innerHTML = `
+            <small>${current.label}</small>
+            <strong>${current.flavor}</strong>
+            <span>${current.note}</span>
+          `;
+        }
+      }
+
+      function startSlider() {
+        slideTimer = window.setInterval(() => {
+          showSlide(activeSlide + 1);
+        }, 5000);
+      }
+
+      function resetSlider() {
+        window.clearInterval(slideTimer);
+        startSlider();
+      }
+
+      prev?.addEventListener("click", () => {
+        showSlide(activeSlide - 1);
+        resetSlider();
+      });
+
+      next?.addEventListener("click", () => {
+        showSlide(activeSlide + 1);
+        resetSlider();
+      });
+
+      dots.forEach((dot) => {
+        dot.addEventListener("click", () => {
+          const index = Number(dot.getAttribute("data-dot"));
+          showSlide(index);
+          resetSlider();
+        });
+      });
+
+      startSlider();
+    </script>
+  </body>
+</html>
