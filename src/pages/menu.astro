@@ -193,7 +193,7 @@ const badgeIcons = {
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-  href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,700;0,800;0,900;1,800;1,900&family=Cooper+Black&family=Oswald:wght@500;600;700&family=Pacifico&family=Nunito:wght@400;600;700;800;900&display=swap"
+  href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,700;0,800;0,900;1,800;1,900&family=Cooper+Black&family=Oswald:wght@400;500;600;700&family=Pacifico&family=Nunito:wght@400;600;700;800;900&display=swap"
   rel="stylesheet"
 />
 
@@ -269,7 +269,7 @@ const badgeIcons = {
 }
 
 .bigg-menu-page .site-logo-img {
-  width: 340px;
+  width: 273px;
   height: auto;
   object-fit: contain;
   display: block;
@@ -1027,7 +1027,68 @@ const badgeIcons = {
         .bigg-menu-page .site-nav-links {
           display: none;
         }
+.bigg-menu-page .site-nav-links.open {
+  display: flex;
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  background: var(--bigg-soft-cream);
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 34px;
+  padding: 80px 20px;
+}
 
+.bigg-menu-page .site-nav-links.open a {
+  font-family: "Oswald", sans-serif !important;
+  color: var(--bigg-blue) !important;
+  font-size: 1.45rem;
+  font-weight: 400;
+  letter-spacing: 9px;
+  text-decoration: none !important;
+  text-transform: uppercase;
+}
+
+.bigg-menu-page .site-nav-links.open a.active {
+  color: var(--bigg-coral) !important;
+}
+
+.bigg-menu-page .site-nav-links.open a.active::after {
+  display: none;
+}
+
+.bigg-menu-page .mobile-menu-icon {
+  background: transparent;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+.bigg-menu-page .mobile-menu-icon:focus,
+.bigg-menu-page .mobile-menu-icon:focus-visible {
+  outline: none;
+  box-shadow: none;
+}
+
+.bigg-menu-page .mobile-menu-icon.open {
+  position: fixed;
+  top: 58px;
+  right: 32px;
+  z-index: 1000;
+}
+
+.bigg-menu-page .mobile-menu-icon.open span:nth-child(1) {
+  transform: translateY(11px) rotate(45deg);
+}
+
+.bigg-menu-page .mobile-menu-icon.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.bigg-menu-page .mobile-menu-icon.open span:nth-child(3) {
+  transform: translateY(-11px) rotate(-45deg);
+}
         .bigg-menu-page .mobile-menu-icon {
           display: block;
         }
@@ -1083,7 +1144,14 @@ const badgeIcons = {
         .bigg-menu-page .site-nav {
           padding: 16px 18px 12px !important;
         }
+.bigg-menu-page .site-brand {
+  width: 300px;
+  height: 120px;
+}
 
+.bigg-menu-page .site-logo-img {
+  width: 273px;
+}
         .bigg-menu-page .site-brand-main {
           font-size: 1.9rem !important;
         }
@@ -1209,18 +1277,18 @@ const badgeIcons = {
   />
 </a>
 
-          <div class="site-nav-links">
+          <div class="site-nav-links" id="navLinks">
             <a href="/">Home</a>
 <a href="/menu" class="active">Menu</a>
 <a href="/catering">Catering</a>
 <a href={giftCardLink} target="_blank" rel="noopener">Gift Cards</a>
           </div>
 
-          <div class="mobile-menu-icon" aria-hidden="true">
+          <button class="mobile-menu-icon" id="menuToggle" aria-label="Open menu" type="button">
             <span></span>
             <span></span>
             <span></span>
-          </div>
+          </button>
         </div>
       </nav>
 
@@ -1461,5 +1529,18 @@ const badgeIcons = {
         });
       });
     </script>
+    <script is:inline>
+  document.addEventListener("DOMContentLoaded", () => {
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
+
+    if (!menuToggle || !navLinks) return;
+
+    menuToggle.addEventListener("click", () => {
+      navLinks.classList.toggle("open");
+      menuToggle.classList.toggle("open");
+    });
+  });
+</script>
   </body>
 </html>
