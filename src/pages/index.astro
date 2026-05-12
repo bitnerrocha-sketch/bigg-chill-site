@@ -454,18 +454,19 @@ const tickerFlavors = [...flavors, ...flavors];
       }
 
       .slide-label {
-        position: absolute;
-        right: clamp(18px, 4vw, 44px);
-        bottom: clamp(22px, 4vw, 46px);
-        z-index: 3;
-        background: rgba(255, 248, 239, 0.94);
-        border: 2px solid rgba(54, 91, 109, 0.28);
-        box-shadow: var(--shadow);
-        border-radius: 10px;
-        padding: 18px 22px;
-        min-width: min(330px, calc(100% - 36px));
-        text-align: center;
-      }
+  display: none;
+  position: absolute;
+  right: clamp(18px, 4vw, 44px);
+  bottom: clamp(22px, 4vw, 46px);
+  z-index: 3;
+  background: rgba(255, 248, 239, 0.94);
+  border: 2px solid rgba(54, 91, 109, 0.28);
+  box-shadow: var(--shadow);
+  border-radius: 10px;
+  padding: 18px 22px;
+  min-width: min(330px, calc(100% - 36px));
+  text-align: center;
+}
 
       .slide-label small {
         display: block;
@@ -1559,10 +1560,14 @@ const tickerFlavors = [...flavors, ...flavors];
               <div>
                 <h3>Hours</h3>
                 <p>
-                  Sunday: 1–9 PM<br />
-                  Monday–Friday: 1–8:30 PM<br />
-                  Saturday: 1–9 PM
-                </p>
+  Monday: 1–9 PM<br />
+  Tuesday: 1–9 PM<br />
+  Wednesday: 1–9 PM<br />
+  Thursday: 1–9 PM<br />
+  Friday: 1–9 PM<br />
+  Saturday: 1–9 PM<br />
+  Sunday: 1–9 PM
+</p>
               </div>
             </div>
 
@@ -1661,10 +1666,14 @@ const tickerFlavors = [...flavors, ...flavors];
           <div>
             <h3>Hours</h3>
             <p>
-              Sunday: 1–9 PM<br />
-              Monday–Friday: 1–8:30 PM<br />
-              Saturday: 1–9 PM
-            </p>
+  Monday: 1–9 PM<br />
+  Tuesday: 1–9 PM<br />
+  Wednesday: 1–9 PM<br />
+  Thursday: 1–9 PM<br />
+  Friday: 1–9 PM<br />
+  Saturday: 1–9 PM<br />
+  Sunday: 1–9 PM
+</p>
 
             <h3 style="margin-top: 18px;">Let’s Connect</h3>
             <div class="social-icons">

@@ -193,9 +193,9 @@ const badgeIcons = {
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Cooper+Black&family=Oswald:wght@500;600;700&family=Pacifico&family=Nunito:wght@400;600;700;800;900&display=swap"
-      rel="stylesheet"
-    />
+  href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,700;0,800;0,900;1,800;1,900&family=Cooper+Black&family=Oswald:wght@500;600;700&family=Pacifico&family=Nunito:wght@400;600;700;800;900&display=swap"
+  rel="stylesheet"
+/>
 
     <style is:global>
       :root {
@@ -243,39 +243,38 @@ const badgeIcons = {
       }
 
       .bigg-menu-page .site-nav {
-        width: 100%;
-        background: var(--bigg-soft-cream) !important;
-        border-bottom: 4px solid var(--bigg-coral) !important;
-        padding: 14px 28px 12px !important;
-      }
-
-      .bigg-menu-page .site-nav-inner {
-        width: min(1320px, 100%);
-        margin: 0 auto;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 24px;
-      }
-
-      .bigg-menu-page .site-brand {
-  display: inline-flex;
-  flex-direction: column;
-  color: var(--bigg-blue) !important;
-  text-decoration: none !important;
-  line-height: 1 !important;
-  text-transform: none !important;
-  font-style: normal !important;
-  letter-spacing: normal !important;
-  transform: translateX(-70px);
+  width: 100%;
+  background: var(--bigg-soft-cream) !important;
+  border-bottom: 4px solid var(--bigg-coral) !important;
+  padding: 6px clamp(18px, 5vw, 76px) !important;
 }
+
+.bigg-menu-page .site-nav-inner {
+  width: 100%;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.bigg-menu-page .site-brand {
+  text-decoration: none !important;
+  display: inline-flex;
+  align-items: center;
+  width: 340px;
+  height: 135px;
+  overflow: hidden;
+  transform: none;
+}
+
 .bigg-menu-page .site-logo-img {
-  width: 275px;
-  height: 92px;
+  width: 340px;
+  height: auto;
   object-fit: contain;
   display: block;
-  transform: scale(1.85) translateY(3px);
-  transform-origin: left center;
+  transform: translateY(10px);
+  transform-origin: center;
 }
       .bigg-menu-page .site-brand-main {
         color: var(--bigg-blue) !important;
@@ -300,24 +299,40 @@ const badgeIcons = {
       }
 
       .bigg-menu-page .site-nav-links {
-        display: flex;
-        align-items: center;
-        gap: 30px;
-        font-family: "Oswald", Arial, sans-serif !important;
-        font-size: 0.95rem;
-        font-weight: 700;
-        letter-spacing: 0.04em;
-        text-transform: none;
-      }
+  display: flex;
+  align-items: center;
+  gap: clamp(22px, 3vw, 42px);
+}
 
-      .bigg-menu-page .site-nav-links a {
-        color: #111 !important;
-        text-decoration: none !important;
-      }
+.bigg-menu-page .site-nav-links a {
+  font-family: "Barlow Condensed", Arial, sans-serif !important;
+  color: var(--bigg-blue) !important;
+  text-decoration: none !important;
+  text-transform: uppercase;
+  font-size: 1.1rem;
+  font-weight: 900;
+  letter-spacing: 1.3px;
+  position: relative;
+}
 
-      .bigg-menu-page .site-nav-links a:hover {
-        color: var(--bigg-coral) !important;
-      }
+.bigg-menu-page .site-nav-links a:hover {
+  color: var(--bigg-coral) !important;
+}
+
+.bigg-menu-page .site-nav-links a.active {
+  color: var(--bigg-coral) !important;
+}
+
+.bigg-menu-page .site-nav-links a.active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -8px;
+  height: 3px;
+  background: var(--bigg-coral);
+  border-radius: 999px;
+}
 
       .bigg-menu-page .mobile-menu-icon {
         display: none;
@@ -1196,9 +1211,9 @@ const badgeIcons = {
 
           <div class="site-nav-links">
             <a href="/">Home</a>
-            <a href="/menu">Menu</a>
-            <a href="/catering">Catering</a>
-            <a href={giftCardLink} target="_blank" rel="noopener">Gift Cards</a>
+<a href="/menu" class="active">Menu</a>
+<a href="/catering">Catering</a>
+<a href={giftCardLink} target="_blank" rel="noopener">Gift Cards</a>
           </div>
 
           <div class="mobile-menu-icon" aria-hidden="true">

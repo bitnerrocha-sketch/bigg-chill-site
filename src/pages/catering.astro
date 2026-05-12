@@ -13,9 +13,9 @@ const email = "biggchillmanagment@gmail.com";
     />
 
     <link
-      href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Pacifico&display=swap"
-      rel="stylesheet"
-    />
+  href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,700;0,800;0,900;1,800;1,900&family=Oswald:wght@400;500;600;700&family=Pacifico&display=swap"
+  rel="stylesheet"
+/>
 
     <style>
       :root {
@@ -63,59 +63,82 @@ const email = "biggchillmanagment@gmail.com";
 
       .nav {
   background: var(--cream-light);
-  border-bottom: 3px solid var(--coral);
-  padding: 10px 24px;
+  border-bottom: 4px solid var(--coral);
+  padding: 6px clamp(18px, 5vw, 76px);
   position: sticky;
   top: 0;
   z-index: 20;
 }
 
-      .nav-inner {
-  max-width: 1400px;
-  margin: 0 auto;
+.nav-inner {
+  width: 100%;
+  margin: 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 24px;
 }
 
-      .brand {
+.brand {
+  text-decoration: none;
   display: inline-flex;
   align-items: center;
-  text-decoration: none;
+  width: 340px;
+  height: 135px;
+  overflow: hidden;
 }
+
 .brand-logo {
-  width: 230px;
-  height: 72px;
+  width: 340px;
+  height: auto;
   object-fit: contain;
   display: block;
-  transform: scale(1.9) translateY(-4px);
-  transform-origin: left center;
+  transform: translateY(10px);
+  transform-origin: center;
 }
+
 .cup-logo-img {
   width: 230px;
   height: auto;
   display: block;
   transform: rotate(-1deg);
 }
-      .nav-links {
-        display: flex;
-        align-items: center;
-        gap: 24px;
-      }
 
-      .nav-links a {
-        color: var(--teal);
-        text-decoration: none;
-        font-weight: 600;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        font-size: 0.9rem;
-      }
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: clamp(22px, 3vw, 42px);
+}
 
-      .nav-links a:hover {
-        color: var(--coral);
-      }
+.nav-links a {
+  font-family: "Barlow Condensed", sans-serif;
+  color: var(--teal);
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 1.1rem;
+  font-weight: 900;
+  letter-spacing: 1.3px;
+  position: relative;
+}
+
+.nav-links a:hover {
+  color: var(--coral);
+}
+
+.nav-links a.active {
+  color: var(--coral);
+}
+
+.nav-links a.active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -8px;
+  height: 3px;
+  background: var(--coral);
+  border-radius: 999px;
+}
 
       .menu-icon {
         display: none;
@@ -957,11 +980,11 @@ const email = "biggchillmanagment@gmail.com";
   />
 </a>
           <div class="nav-links">
-            <a href="/">Home</a>
-            <a href="/menu">Menu</a>
-            <a href="/catering">Catering</a>
-            <a href="https://app.squareup.com/gift/MLQY19DJP25AS/order" target="_blank">Gift Cards</a>
-          </div>
+  <a href="/">Home</a>
+  <a href="/menu">Menu</a>
+  <a href="/catering" class="active">Catering</a>
+  <a href="https://app.squareup.com/gift/MLQY19DJP25AS/order" target="_blank">Gift Cards</a>
+</div>
 
           <div class="menu-icon" aria-hidden="true">
             <span></span>
@@ -1072,7 +1095,7 @@ const email = "biggchillmanagment@gmail.com";
               <ul>
                 <li>3-gallon tub</li>
                 <li>Approx. 35 double small scoops</li>
-                <li>Standard flavors of Chocolate, Vanilla or Midnight cookies from $155 <strong>$155</strong></li>
+                <li>Standard flavors of Chocolate, Vanilla or Midnight cookies from <strong>$155</strong></li>
                 <li>Premium or custom flavors from <strong>$180</strong></li>
                 <li>Includes cups</li>
               </ul>
