@@ -187,7 +187,7 @@ const badgeIcons = {
     <title>Current Ice Cream Flavors in Cody, WY | The Bigg Chill</title>
     <meta
       name="description"
-      content="Explore The Bigg Chill’s rotating monthly menu of handcrafted ice cream flavors, seasonal scoops, dairy-free options, and small-batch ice cream in Cody, Wyoming."
+      content="Explore The Bigg Chill's rotating monthly menu of handcrafted ice cream flavors, seasonal scoops, dairy-free options, and small-batch ice cream in Cody, Wyoming."
     />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -346,6 +346,7 @@ const badgeIcons = {
         margin-bottom: 8px;
         border-radius: 999px;
         background: var(--bigg-blue);
+        transition: transform 0.2s ease, opacity 0.2s ease;
       }
 
       .bigg-menu-page .hero {
@@ -990,33 +991,126 @@ const badgeIcons = {
         justify-content: center;
         gap: 10px;
         min-width: 220px;
-        padding: 16px 24px !important;
-        border: 0 !important;
-        border-radius: 10px !important;
+        padding: 13px 24px !important;
+        border: 2px solid var(--bigg-coral) !important;
+        border-radius: 8px !important;
         background: var(--bigg-coral) !important;
         color: var(--bigg-white) !important;
-        font-family: "Oswald", Arial, sans-serif !important;
-        font-size: 0.95rem !important;
-        font-weight: 700 !important;
-        letter-spacing: 0.16em !important;
+        font-family: "Barlow Condensed", Arial, sans-serif !important;
+        font-size: 1rem !important;
+        font-weight: 900 !important;
+        letter-spacing: 1.5px !important;
         text-transform: uppercase !important;
         text-decoration: none !important;
-        box-shadow: 0 10px 20px rgba(234, 96, 95, 0.24);
+        box-shadow: 0 5px 0 rgba(151, 63, 63, 0.35);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
       }
 
-      .bigg-menu-page .site-footer {
+      .bigg-menu-page .direction-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 7px 0 rgba(151, 63, 63, 0.3);
+      }
+
+      .bigg-menu-page .footer {
         margin-top: 36px;
-        padding: 18px 22px;
-        background: var(--bigg-blue);
+        background:
+          radial-gradient(circle at 10% 10%, rgba(255, 255, 255, 0.12), transparent 24%),
+          #234b5b;
         color: var(--bigg-white);
-        text-align: center;
-        font-family: "Nunito", Arial, sans-serif;
-        font-size: 0.92rem;
-        font-weight: 800;
+        padding: 38px clamp(20px, 5vw, 74px) 22px;
       }
 
-      .bigg-menu-page .site-footer span {
-        opacity: 0.94;
+      .bigg-menu-page .footer-inner {
+        max-width: 1160px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1.1fr 1fr 0.8fr 0.9fr;
+        gap: 34px;
+        align-items: start;
+        text-align: left;
+      }
+
+      .bigg-menu-page .footer-brand-mark {
+        color: var(--bigg-white);
+      }
+
+      .bigg-menu-page .footer-brand-script {
+        display: block;
+        font-family: "Pacifico", cursive;
+        font-size: 1.15rem;
+        margin-left: 28px;
+        margin-bottom: -7px;
+      }
+
+      .bigg-menu-page .footer-brand-main {
+        display: block;
+        font-family: "Barlow Condensed", sans-serif;
+        font-size: 2.65rem;
+        font-weight: 900;
+        text-transform: uppercase;
+        font-style: italic;
+        letter-spacing: 1px;
+        line-height: 0.85;
+      }
+
+      .bigg-menu-page .footer-brand-tag {
+        display: block;
+        color: var(--bigg-white);
+        font-size: 0.78rem;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        margin-top: 4px;
+      }
+
+      .bigg-menu-page .footer p {
+        margin: 0;
+        line-height: 1.5;
+        color: rgba(255, 255, 255, 0.86);
+      }
+
+      .bigg-menu-page .footer h3 {
+        margin: 0 0 10px;
+        font-family: "Barlow Condensed", sans-serif;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        color: var(--bigg-white);
+      }
+
+      .bigg-menu-page .footer a {
+        color: rgba(255, 255, 255, 0.86) !important;
+        text-decoration: none;
+        display: block;
+        margin: 4px 0;
+      }
+
+      .bigg-menu-page .footer a:hover {
+        color: var(--bigg-light-pink) !important;
+      }
+
+      .bigg-menu-page .social-icons {
+        display: flex;
+        gap: 12px;
+        margin-top: 10px;
+      }
+
+      .bigg-menu-page .social-icons a {
+        width: 34px;
+        height: 34px;
+        border-radius: 999px;
+        border: 1px solid rgba(255, 255, 255, 0.55);
+        display: grid;
+        place-items: center;
+        font-weight: 900;
+      }
+
+      .bigg-menu-page .footer-bottom {
+        max-width: 1160px;
+        margin: 28px auto 0;
+        padding-top: 16px;
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+        text-align: center;
+        font-size: 0.9rem;
+        color: rgba(255, 255, 255, 0.72);
       }
 
       .bigg-menu-page [hidden] {
@@ -1065,10 +1159,9 @@ const badgeIcons = {
   cursor: pointer;
 }
 
-.bigg-menu-page .mobile-menu-icon:focus,
 .bigg-menu-page .mobile-menu-icon:focus-visible {
-  outline: none;
-  box-shadow: none;
+  outline: 3px solid rgba(234, 96, 95, 0.35);
+  outline-offset: 6px;
 }
 
 .bigg-menu-page .mobile-menu-icon.open {
@@ -1131,6 +1224,15 @@ const badgeIcons = {
           grid-template-columns: 80px 1fr;
         }
 
+        .bigg-menu-page .footer-inner {
+          grid-template-columns: 1fr;
+          text-align: center;
+        }
+
+        .bigg-menu-page .social-icons {
+          justify-content: center;
+        }
+
         .bigg-menu-page .cone-doodle {
           display: none;
         }
@@ -1145,12 +1247,12 @@ const badgeIcons = {
           padding: 16px 18px 12px !important;
         }
 .bigg-menu-page .site-brand {
-  width: 300px;
-  height: 120px;
+  width: min(260px, calc(100vw - 92px));
+  height: 104px;
 }
 
 .bigg-menu-page .site-logo-img {
-  width: 273px;
+  width: 220px;
 }
         .bigg-menu-page .site-brand-main {
           font-size: 1.9rem !important;
@@ -1210,14 +1312,19 @@ const badgeIcons = {
         }
 
         .bigg-menu-page .flavor-card {
-          grid-template-columns: 78px 1fr;
-          gap: 14px;
-          padding: 16px;
+          grid-template-columns: 1fr;
+          gap: 12px;
+          padding: 18px 16px;
+          text-align: center;
         }
 
         .bigg-menu-page .flavor-illustration {
           min-height: 72px;
           font-size: 3rem;
+        }
+
+        .bigg-menu-page .flavor-illustration img {
+          margin: 0 auto;
         }
 
         .bigg-menu-page .flavor-content h3 {
@@ -1229,7 +1336,8 @@ const badgeIcons = {
         }
 
         .bigg-menu-page .flavor-meta {
-          padding-left: 92px;
+          justify-content: center;
+          padding-left: 0;
         }
 
         .bigg-menu-page .diet-badge {
@@ -1284,7 +1392,7 @@ const badgeIcons = {
 <a href={giftCardLink} target="_blank" rel="noopener">Gift Cards</a>
           </div>
 
-          <button class="mobile-menu-icon" id="menuToggle" aria-label="Open menu" type="button">
+          <button class="mobile-menu-icon" id="menuToggle" aria-label="Open menu" aria-expanded="false" type="button">
             <span></span>
             <span></span>
             <span></span>
@@ -1390,7 +1498,7 @@ const badgeIcons = {
             <button class="filter-btn" type="button" data-filter="Nut-Free">Nut-Free</button>
             <button class="filter-btn" type="button" data-filter="Limited Edition">Limited Edition</button>
           </div>
-          <h2 class="section-title">This Month’s Scoops</h2>
+          <h2 class="section-title">This Month's Scoops</h2>
 
           <div class="flavor-list" id="flavorList">
             {currentFlavors.map((flavor) => (
@@ -1486,7 +1594,7 @@ const badgeIcons = {
 
   <div class="directions-copy">
               <h2>Come grab a scoop in Cody, WY</h2>
-              <p>See what we’re scooping this month.</p>
+              <p>See what we're scooping this month.</p>
 
               <a class="direction-button" href={directionsLink} target="_blank" rel="noopener">
                 📍 Get Directions
@@ -1496,10 +1604,54 @@ const badgeIcons = {
         </section>
       </main>
 
-      <footer class="site-footer">
-        <span>© 2025 The Bigg Chill Ice Cream</span>
-        <span>&nbsp; • &nbsp; Cody, Wyoming</span>
-        <span>&nbsp; • &nbsp; Small-batch since day one</span>
+      <footer class="footer">
+        <div class="footer-inner">
+          <div>
+            <div class="footer-brand-mark" aria-label="The Bigg Chill Handcrafted Ice Cream">
+              <span class="footer-brand-script">The</span>
+              <span class="footer-brand-main">Bigg Chill</span>
+              <span class="footer-brand-tag">Handcrafted Ice Cream</span>
+            </div>
+          </div>
+
+          <div>
+            <p>
+              Handcrafted ice cream made with real ingredients and a big scoop of
+              heart.
+            </p>
+          </div>
+
+          <div>
+            <h3>Quick Links</h3>
+            <a href="/">Home</a>
+            <a href="/menu">Menu</a>
+            <a href="/catering">Catering</a>
+            <a href={giftCardLink} target="_blank" rel="noopener">Gift Cards</a>
+          </div>
+
+          <div>
+            <h3>Hours</h3>
+            <p>
+              Monday: 1–9 PM<br />
+              Tuesday: 1–9 PM<br />
+              Wednesday: 1–9 PM<br />
+              Thursday: 1–9 PM<br />
+              Friday: 1–9 PM<br />
+              Saturday: 1–9 PM<br />
+              Sunday: 1–9 PM
+            </p>
+
+            <h3 style="margin-top: 18px;">Let's Connect</h3>
+            <div class="social-icons">
+              <a href="https://www.instagram.com/the.bigg.chill/" target="_blank" rel="noopener" aria-label="Instagram">◎</a>
+              <a href="https://www.facebook.com/The.Bigg.Chill307/" target="_blank" rel="noopener" aria-label="Facebook">f</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          © The Bigg Chill Ice Cream | 1321 Sheridan Ave, Cody, Wyoming | Made in Cody, Wyoming
+        </div>
       </footer>
     </div>
 
@@ -1536,9 +1688,19 @@ const badgeIcons = {
 
     if (!menuToggle || !navLinks) return;
 
+    const setMenuState = (isOpen) => {
+      navLinks.classList.toggle("open", isOpen);
+      menuToggle.classList.toggle("open", isOpen);
+      menuToggle.setAttribute("aria-expanded", String(isOpen));
+      menuToggle.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
+    };
+
     menuToggle.addEventListener("click", () => {
-      navLinks.classList.toggle("open");
-      menuToggle.classList.toggle("open");
+      setMenuState(!navLinks.classList.contains("open"));
+    });
+
+    navLinks.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => setMenuState(false));
     });
   });
 </script>

@@ -317,6 +317,17 @@ const tickerFlavors = [...flavors, ...flavors];
         box-shadow: 0 7px 0 rgba(151, 63, 63, 0.3);
       }
 
+      .btn:focus-visible,
+      .desktop-links a:focus-visible,
+      .mobile-links a:focus-visible,
+      .menu-toggle:focus-visible,
+      .close-menu:focus-visible,
+      .hero-arrow:focus-visible,
+      .hero-dot:focus-visible {
+        outline: 3px solid rgba(234, 96, 95, 0.45);
+        outline-offset: 4px;
+      }
+
       .btn-outline {
         background: var(--cream-light);
         color: var(--teal);
@@ -1002,19 +1013,19 @@ const tickerFlavors = [...flavors, ...flavors];
         text-align: left;
       }
 
-      .footer-brand {
+      .footer-brand-mark {
         color: var(--white);
       }
 
-      .footer-brand .brand-script {
+      .footer-brand-mark .brand-script {
         margin-left: 28px;
       }
 
-      .footer-brand .brand-main {
+      .footer-brand-mark .brand-main {
         font-size: 2.65rem;
       }
 
-      .footer-brand .brand-tag {
+      .footer-brand-mark .brand-tag {
         color: var(--white);
       }
 
@@ -1140,7 +1151,16 @@ const tickerFlavors = [...flavors, ...flavors];
 
       @media (max-width: 620px) {
         .nav {
-          padding: 16px 18px;
+          padding: 14px 16px;
+        }
+
+        .brand {
+          width: min(260px, calc(100vw - 92px));
+          height: 104px;
+        }
+
+        .nav-logo {
+          width: 220px;
         }
 
         .brand-script {
@@ -1329,22 +1349,22 @@ const tickerFlavors = [...flavors, ...flavors];
           <a href="/" class="active">Home</a>
           <a href="/menu">Menu</a>
           <a href="/catering">Catering</a>
-          <a href={giftCardLink} target="_blank">Gift Cards</a>
+          <a href={giftCardLink} target="_blank" rel="noopener">Gift Cards</a>
         </div>
 
-        <button class="menu-toggle" id="menuToggle" aria-label="Open menu">
+        <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false" type="button">
           ☰
         </button>
       </nav>
 
       <div class="mobile-menu" id="mobileMenu">
-        <button class="close-menu" id="closeMenu" aria-label="Close menu">×</button>
+        <button class="close-menu" id="closeMenu" aria-label="Close menu" type="button">×</button>
 
         <div class="mobile-links">
           <a href="/">Home</a>
           <a href="/menu">Menu</a>
           <a href="/catering">Catering</a>
-          <a href={giftCardLink} target="_blank">Gift Cards</a>
+          <a href={giftCardLink} target="_blank" rel="noopener">Gift Cards</a>
         </div>
       </div>
 
@@ -1369,7 +1389,7 @@ const tickerFlavors = [...flavors, ...flavors];
             <div class="hero-buttons">
               <a href="#visit" class="btn">Visit The Shop</a>
               <a href="/menu" class="btn btn-outline">View Menu</a>
-              <a href={giftCardLink} target="_blank" class="btn">Buy Gift Cards</a>
+              <a href={giftCardLink} target="_blank" rel="noopener" class="btn">Buy Gift Cards</a>
             </div>
           </div>
 
@@ -1382,8 +1402,8 @@ const tickerFlavors = [...flavors, ...flavors];
               ))
             }
 
-            <button class="hero-arrow prev" id="prevSlide" aria-label="Previous slide">‹</button>
-            <button class="hero-arrow next" id="nextSlide" aria-label="Next slide">›</button>
+            <button class="hero-arrow prev" id="prevSlide" aria-label="Previous slide" type="button">‹</button>
+            <button class="hero-arrow next" id="nextSlide" aria-label="Next slide" type="button">›</button>
 
             <div class="slide-label" id="slideLabel">
               <small>{heroSlides[0].label}</small>
@@ -1398,6 +1418,7 @@ const tickerFlavors = [...flavors, ...flavors];
                     class={`hero-dot ${index === 0 ? "active" : ""}`}
                     data-dot={index}
                     aria-label={`Go to slide ${index + 1}`}
+                    type="button"
                   />
                 ))
               }
@@ -1410,7 +1431,7 @@ const tickerFlavors = [...flavors, ...flavors];
       <section class="intro">
         <h2 class="section-kicker">Small-batch. Big heart.</h2>
         <p>
-          We’re the McVey family, and we’re passionate about ice cream. From years
+          We're the McVey family, and we're passionate about ice cream. From years
           of traveling in search of the perfect scoop to creating our own unique
           flavors, The Bigg Chill is our way of serving the community we love.
         </p>
@@ -1438,21 +1459,21 @@ const tickerFlavors = [...flavors, ...flavors];
         />
 
         <div class="story-quote-box">
-          <div class="quote-mark">“</div>
+          <div class="quote-mark">"</div>
           <p>
             Every flavor is<br />
             a reflection of our<br />
-            family’s journey and<br />
+            family's journey and<br />
             dedication to the craft.
           </p>
-          <div class="quote-mark">”</div>
+          <div class="quote-mark">"</div>
         </div>
       </div>
 
       <div class="story-copy">
         <p>
-          We’re the McVey family, and we’re passionate about ice cream. For the
-          past 10 years, we’ve been traveling around the country on a mission to
+          We're the McVey family, and we're passionate about ice cream. For the
+          past 10 years, we've been traveling around the country on a mission to
           find the perfect scoop.
         </p>
 
@@ -1475,13 +1496,13 @@ const tickerFlavors = [...flavors, ...flavors];
           Now, the McVeys serve up our beloved handcrafted ice cream to the
           community we love.
           <span>
-            Every flavor is a reflection of our family’s journey and dedication
+            Every flavor is a reflection of our family's journey and dedication
             to the craft.
           </span>
         </p>
 
         <p>
-          We can’t wait to share our story with you, one scoop at a time.
+          We can't wait to share our story with you, one scoop at a time.
         </p>
       </div>
 
@@ -1528,14 +1549,15 @@ const tickerFlavors = [...flavors, ...flavors];
         <div class="visit-inner retro-frame">
           <div class="visit-copy">
             <p class="section-kicker">Visit The Bigg Chill</p>
-            <h2 class="section-title">We’d Love To See You!</h2>
+            <h2 class="section-title">We'd Love To See You!</h2>
             <p>
               Come by our shop in beautiful Cody, Wyoming for a scoop or two.
-              We’re just waiting to make your day a little sweeter.
+              We're just waiting to make your day a little sweeter.
             </p>
-            <a
+            
               href="https://maps.google.com?q=1321+Sheridan+Ave+Cody+WY"
               target="_blank"
+              rel="noopener"
               class="btn"
             >
               Plan Your Visit
@@ -1582,9 +1604,10 @@ const tickerFlavors = [...flavors, ...flavors];
               </div>
             </div>
 
-            <a
+            
               href="https://maps.google.com?q=1321+Sheridan+Ave+Cody+WY"
               target="_blank"
+              rel="noopener"
               class="btn btn-outline"
             >
               Get Directions
@@ -1609,7 +1632,7 @@ const tickerFlavors = [...flavors, ...flavors];
               Treat someone special to their favorite flavors. Gift cards are
               available online and make every celebration a little sweeter.
             </p>
-            <a href={giftCardLink} target="_blank" class="btn">Buy Gift Cards</a>
+            <a href={giftCardLink} target="_blank" rel="noopener" class="btn">Buy Gift Cards</a>
           </div>
 
           <div class="gift-scoop">
@@ -1632,7 +1655,7 @@ const tickerFlavors = [...flavors, ...flavors];
           <img src="/community-6.png" alt="Bigg Chill community moment 6" />
         </div>
 
-        <a href="https://www.instagram.com/the.bigg.chill/" target="_blank" class="btn">
+        <a href="https://www.instagram.com/the.bigg.chill/" target="_blank" rel="noopener" class="btn">
           Follow Us @thebiggchill
         </a>
       </section>
@@ -1641,7 +1664,7 @@ const tickerFlavors = [...flavors, ...flavors];
       <footer class="footer">
         <div class="footer-inner">
           <div>
-            <div class="brand footer-brand">
+            <div class="footer-brand-mark" aria-label="The Bigg Chill Handcrafted Ice Cream">
               <span class="brand-script">The</span>
               <span class="brand-main">Bigg Chill</span>
               <span class="brand-tag">Handcrafted Ice Cream</span>
@@ -1660,7 +1683,7 @@ const tickerFlavors = [...flavors, ...flavors];
             <a href="/">Home</a>
             <a href="/menu">Menu</a>
             <a href="/catering">Catering</a>
-            <a href={giftCardLink} target="_blank">Gift Cards</a>
+            <a href={giftCardLink} target="_blank" rel="noopener">Gift Cards</a>
           </div>
 
           <div>
@@ -1675,10 +1698,10 @@ const tickerFlavors = [...flavors, ...flavors];
   Sunday: 1–9 PM
 </p>
 
-            <h3 style="margin-top: 18px;">Let’s Connect</h3>
+            <h3 style="margin-top: 18px;">Let's Connect</h3>
             <div class="social-icons">
-              <a href="https://www.instagram.com/the.bigg.chill/" target="_blank" aria-label="Instagram">◎</a>
-              <a href="https://www.facebook.com/The.Bigg.Chill307/" target="_blank" aria-label="Facebook">f</a>
+              <a href="https://www.instagram.com/the.bigg.chill/" target="_blank" rel="noopener" aria-label="Instagram">◎</a>
+              <a href="https://www.facebook.com/The.Bigg.Chill307/" target="_blank" rel="noopener" aria-label="Facebook">f</a>
             </div>
           </div>
         </div>
@@ -1694,12 +1717,24 @@ const tickerFlavors = [...flavors, ...flavors];
       const mobileMenu = document.getElementById("mobileMenu");
       const closeMenu = document.getElementById("closeMenu");
 
+      const setMobileMenuState = (isOpen) => {
+        if (!mobileMenu || !menuToggle) return;
+
+        mobileMenu.classList.toggle("open", isOpen);
+        menuToggle.setAttribute("aria-expanded", String(isOpen));
+        menuToggle.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
+      };
+
       menuToggle?.addEventListener("click", () => {
-        mobileMenu.classList.add("open");
+        setMobileMenuState(!mobileMenu?.classList.contains("open"));
       });
 
       closeMenu?.addEventListener("click", () => {
-        mobileMenu.classList.remove("open");
+        setMobileMenuState(false);
+      });
+
+      mobileMenu?.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => setMobileMenuState(false));
       });
 
       const heroSlides = [
