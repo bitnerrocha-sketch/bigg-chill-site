@@ -229,7 +229,7 @@ const badgeIcons = {
       .bigg-menu-page {
         width: 100%;
         min-height: 100vh;
-        overflow: hidden;
+        overflow: visible;
         background:
           radial-gradient(circle at 10% 12%, rgba(240, 161, 165, 0.16), transparent 24%),
           radial-gradient(circle at 90% 4%, rgba(245, 198, 200, 0.28), transparent 20%),
@@ -247,6 +247,9 @@ const badgeIcons = {
   background: var(--bigg-soft-cream) !important;
   border-bottom: 4px solid var(--bigg-coral) !important;
   padding: 6px clamp(18px, 5vw, 76px) !important;
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
 .bigg-menu-page .site-nav-inner {
@@ -1507,7 +1510,12 @@ const badgeIcons = {
                 data-tags={`${flavor.category} ${flavor.tags.join(" ")}`}
               >
                 <div class="flavor-illustration" aria-hidden="true">
-  <img src={illustrationMap[flavor.illustration]} alt="" loading="lazy" />
+  <img
+  src={illustrationMap[flavor.illustration]}
+  alt=""
+  loading="lazy"
+  decoding="async"
+/>
 </div>
 
                 <div class="flavor-content">
@@ -1548,7 +1556,12 @@ const badgeIcons = {
                 <>
                   <article class="dairy-item">
                     <div class="flavor-illustration" aria-hidden="true">
-  <img src={illustrationMap[flavor.illustration]} alt="" loading="lazy" />
+  <img
+  src={illustrationMap[flavor.illustration]}
+  alt=""
+  loading="lazy"
+  decoding="async"
+/>
 </div>
                     <div>
                       <h3>{flavor.name}</h3>
@@ -1586,10 +1599,11 @@ const badgeIcons = {
           <section class="directions-card" aria-label="Get directions to The Bigg Chill">
   <div class="landscape-doodle" aria-hidden="true">
     <img
-      src="/Classic%20Car%20Infront%20of%20Ice%20Cream%20Shop.JPG"
-      alt=""
-      loading="lazy"
-    />
+  src="/Classic%20Car%20Infront%20of%20Ice%20Cream%20Shop.JPG"
+  alt=""
+  loading="lazy"
+  decoding="async"
+/>
   </div>
 
   <div class="directions-copy">

@@ -1014,21 +1014,36 @@ const tickerFlavors = [...flavors, ...flavors];
       }
 
       .footer-brand-mark {
-        color: var(--white);
-      }
+  color: var(--white);
+}
 
-      .footer-brand-mark .brand-script {
-        margin-left: 28px;
-      }
+.footer-brand-script {
+  display: block;
+  font-family: "Pacifico", cursive;
+  font-size: 1.15rem;
+  margin-left: 28px;
+  margin-bottom: -7px;
+}
 
-      .footer-brand-mark .brand-main {
-        font-size: 2.65rem;
-      }
+.footer-brand-main {
+  display: block;
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 2.65rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  font-style: italic;
+  letter-spacing: 1px;
+  line-height: 0.85;
+}
 
-      .footer-brand-mark .brand-tag {
-        color: var(--white);
-      }
-
+.footer-brand-tag {
+  display: block;
+  color: var(--white);
+  font-size: 0.78rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-top: 4px;
+}
       .footer p {
         margin: 0;
         line-height: 1.5;
@@ -1336,6 +1351,46 @@ const tickerFlavors = [...flavors, ...flavors];
         }
       }
     </style>
+      <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "IceCreamShop",
+        "name": "The Bigg Chill",
+        "url": "https://thebiggchillicecream.netlify.app/",
+        "logo": "https://thebiggchillicecream.netlify.app/logo-transparent.png",
+        "image": "https://thebiggchillicecream.netlify.app/shop-front.png",
+        "description": "The Bigg Chill serves handcrafted small-batch ice cream, rotating flavors, gift cards, and catering in Cody, Wyoming.",
+        "telephone": "+1-307-250-7164",
+        "email": "biggchillmanagment@gmail.com",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "1321 Sheridan Ave",
+          "addressLocality": "Cody",
+          "addressRegion": "WY",
+          "addressCountry": "US"
+        },
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday",
+              "Sunday"
+            ],
+            "opens": "13:00",
+            "closes": "21:00"
+          }
+        ],
+        "sameAs": [
+          "https://www.instagram.com/the.bigg.chill/",
+          "https://www.facebook.com/The.Bigg.Chill307/"
+        ]
+      }
+    </script>
   </head>
 
   <body>
@@ -1397,7 +1452,13 @@ const tickerFlavors = [...flavors, ...flavors];
             {
               heroSlides.map((slide, index) => (
                 <div class={`hero-slide ${index === 0 ? "active" : ""}`} data-slide={index}>
-                  <img src={slide.image} alt={`${slide.flavor} from The Bigg Chill`} />
+                  <img
+  src={slide.image}
+  alt={`${slide.flavor} from The Bigg Chill`}
+  loading={index === 0 ? "eager" : "lazy"}
+  fetchpriority={index === 0 ? "high" : "low"}
+  decoding="async"
+/>
                 </div>
               ))
             }
@@ -1453,10 +1514,12 @@ const tickerFlavors = [...flavors, ...flavors];
     <div class="story-layout">
       <div class="story-left">
         <img
-          src="/story-family.png"
-          alt="The McVey family at The Bigg Chill"
-          class="story-photo story-photo-family"
-        />
+  src="/story-family.png"
+  alt="The McVey family at The Bigg Chill"
+  class="story-photo story-photo-family"
+  loading="lazy"
+  decoding="async"
+/>
 
         <div class="story-quote-box">
           <div class="quote-mark">"</div>
@@ -1508,16 +1571,20 @@ const tickerFlavors = [...flavors, ...flavors];
 
       <div class="story-right">
         <img
-          src="/story-machine.png"
-          alt="Handcrafted ice cream being made"
-          class="story-photo story-photo-machine"
-        />
+  src="/story-machine.png"
+  alt="Handcrafted ice cream being made"
+  class="story-photo story-photo-machine"
+  loading="lazy"
+  decoding="async"
+/>
 
         <img
-          src="/shop-front.png"
-          alt="The Bigg Chill storefront in Cody Wyoming"
-          class="story-photo story-photo-shop"
-        />
+  src="/shop-front.png"
+  alt="The Bigg Chill storefront in Cody Wyoming"
+  class="story-photo story-photo-shop"
+  loading="lazy"
+  decoding="async"
+/>
       </div>
     </div>
   </div>
@@ -1594,7 +1661,7 @@ const tickerFlavors = [...flavors, ...flavors];
               </div>
             </div>
 
-            <div class="info-row">
+                        <div class="info-row">
               <div class="info-icon">☎</div>
               <div>
                 <h3>Contact</h3>
@@ -1603,7 +1670,8 @@ const tickerFlavors = [...flavors, ...flavors];
                   biggchillmanagment@gmail.com
                 </p>
               </div>
-            
+            </div>
+          </div>
         </div>
       </section>
 
@@ -1627,8 +1695,13 @@ const tickerFlavors = [...flavors, ...flavors];
           </div>
 
           <div class="gift-scoop">
-            <img src="/hero-flavor-4.JPG" alt="A scoop of Bigg Chill ice cream" />
-          </div>
+  <img
+    src="/hero-flavor-4.JPG"
+    alt="A scoop of Bigg Chill ice cream"
+    loading="lazy"
+    decoding="async"
+  />
+</div>
         </div>
       </section>
 
@@ -1638,13 +1711,43 @@ const tickerFlavors = [...flavors, ...flavors];
         <h2 class="section-title">Share The Sweet Moments</h2>
 
         <div class="social-strip">
-          <img src="/community-1.JPG" alt="Bigg Chill community moment 1" />
-          <img src="/community-2.jpg" alt="Bigg Chill community moment 2" />
-          <img src="/community-3.png" alt="Bigg Chill community moment 3" />
-          <img src="/community-4.png" alt="Bigg Chill community moment 4" />
-          <img src="/community-5.png" alt="Bigg Chill community moment 5" />
-          <img src="/community-6.png" alt="Bigg Chill community moment 6" />
-        </div>
+  <img
+    src="/community-1.JPG"
+    alt="Bigg Chill community moment 1"
+    loading="lazy"
+    decoding="async"
+  />
+  <img
+    src="/community-2.jpg"
+    alt="Bigg Chill community moment 2"
+    loading="lazy"
+    decoding="async"
+  />
+  <img
+    src="/community-3.png"
+    alt="Bigg Chill community moment 3"
+    loading="lazy"
+    decoding="async"
+  />
+  <img
+    src="/community-4.png"
+    alt="Bigg Chill community moment 4"
+    loading="lazy"
+    decoding="async"
+  />
+  <img
+    src="/community-5.png"
+    alt="Bigg Chill community moment 5"
+    loading="lazy"
+    decoding="async"
+  />
+  <img
+    src="/community-6.png"
+    alt="Bigg Chill community moment 6"
+    loading="lazy"
+    decoding="async"
+  />
+</div>
 
         <a href="https://www.instagram.com/the.bigg.chill/" target="_blank" rel="noopener" class="btn">
           Follow Us @thebiggchill
@@ -1656,9 +1759,9 @@ const tickerFlavors = [...flavors, ...flavors];
         <div class="footer-inner">
           <div>
             <div class="footer-brand-mark" aria-label="The Bigg Chill Handcrafted Ice Cream">
-              <span class="brand-script">The</span>
-              <span class="brand-main">Bigg Chill</span>
-              <span class="brand-tag">Handcrafted Ice Cream</span>
+              <span class="footer-brand-script">The</span>
+              <span class="footer-brand-main">Bigg Chill</span>
+              <span class="footer-brand-tag">Handcrafted Ice Cream</span>
             </div>
           </div>
 
@@ -1674,22 +1777,22 @@ const tickerFlavors = [...flavors, ...flavors];
             <a href="/">Home</a>
             <a href="/menu">Menu</a>
             <a href="/catering">Catering</a>
-            <a href={giftCardLink} target="_blank" rel="noopener">Gift Cards</a>
+            <a href="https://app.squareup.com/gift/MLQY19DJP25AS/order" target="_blank" rel="noopener">Gift Cards</a>
           </div>
 
           <div>
             <h3>Hours</h3>
             <p>
-  Monday: 1–9 PM<br />
-  Tuesday: 1–9 PM<br />
-  Wednesday: 1–9 PM<br />
-  Thursday: 1–9 PM<br />
-  Friday: 1–9 PM<br />
-  Saturday: 1–9 PM<br />
-  Sunday: 1–9 PM
-</p>
+              Monday: 1–9 PM<br />
+              Tuesday: 1–9 PM<br />
+              Wednesday: 1–9 PM<br />
+              Thursday: 1–9 PM<br />
+              Friday: 1–9 PM<br />
+              Saturday: 1–9 PM<br />
+              Sunday: 1–9 PM
+            </p>
 
-            <h3 style="margin-top: 18px;">Let's Connect</h3>
+            <h3 style="margin-top: 18px;">Let’s Connect</h3>
             <div class="social-icons">
               <a href="https://www.instagram.com/the.bigg.chill/" target="_blank" rel="noopener" aria-label="Instagram">◎</a>
               <a href="https://www.facebook.com/The.Bigg.Chill307/" target="_blank" rel="noopener" aria-label="Facebook">f</a>
@@ -1701,7 +1804,6 @@ const tickerFlavors = [...flavors, ...flavors];
           © The Bigg Chill Ice Cream | 1321 Sheridan Ave, Cody, Wyoming | Made in Cody, Wyoming
         </div>
       </footer>
-    </div>
 
     <script>
       const menuToggle = document.getElementById("menuToggle");

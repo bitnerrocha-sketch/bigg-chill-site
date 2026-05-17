@@ -55,8 +55,8 @@
       }
 
       .page {
-        overflow: hidden;
-      }
+  overflow: visible;
+}
 
       /* Header */
 
@@ -1234,14 +1234,17 @@
           </div>
 
           <div class="hero-visual" aria-hidden="true">
-            <div class="ice-cream-scene">
-              <img
-                src="/product-cup.png"
-                alt="The Bigg Chill ice cream cup"
-                class="product-cup-img"
-              />
-            </div>
-          </div>
+  <div class="ice-cream-scene">
+    <img
+      src="/product-cup.png"
+      alt="The Bigg Chill ice cream cup"
+      class="product-cup-img"
+      loading="eager"
+      fetchpriority="high"
+      decoding="async"
+    />
+  </div>
+</div>
         </div>
 
         <svg class="wave" viewBox="0 0 1440 120" preserveAspectRatio="none">
