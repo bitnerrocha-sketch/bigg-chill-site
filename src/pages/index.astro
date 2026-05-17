@@ -3,31 +3,31 @@ const giftCardLink = "https://app.squareup.com/gift/MLQY19DJP25AS/order";
 
 const heroSlides = [
   {
-    image: "/hero-flavor-1.JPG",
+    image: "/hero-flavor-1.webp",
     label: "Featured Flavor",
     flavor: "Strawberry Cheesecake",
     note: "Creamy, fruity & oh-so dreamy.",
   },
   {
-    image: "/hero-flavor-2.JPG",
+    image: "/hero-flavor-2.webp",
     label: "Small-Batch Favorite",
     flavor: "Cookie Dough",
     note: "A classic scoop made the Bigg Chill way.",
   },
   {
-    image: "/hero-flavor-3.JPG",
+    image: "/hero-flavor-3.webp",
     label: "Rotating Monthly",
     flavor: "Seasonal Scoops",
     note: "New flavors worth coming back for.",
   },
   {
-    image: "/hero-flavor-4.JPG",
+    image: "/hero-flavor-4.webp",
     label: "Made In Cody",
     flavor: "Handcrafted Ice Cream",
     note: "Fresh, thoughtful, and made with care.",
   },
   {
-    image: "/hero-flavor-5.JPG",
+    image: "/hero-flavor-5.webp",
     label: "Fan Favorite",
     flavor: "Bigg Chill Classics",
     note: "The flavors people ask for again and again.",
@@ -858,36 +858,36 @@ const tickerFlavors = [...flavors, ...flavors];
       }
 
       .visit-info {
-        display: grid;
-        gap: 18px;
-      }
+  display: grid;
+  gap: 22px;
+  text-align: center;
+}
 
-      .info-row {
-        display: grid;
-        grid-template-columns: 42px 1fr;
-        gap: 14px;
-        align-items: start;
-      }
+.info-row {
+  display: block;
+  padding-bottom: 22px;
+  border-bottom: 1px solid rgba(254, 1, 155, 0.38);
+}
 
-      .info-icon {
-        width: 42px;
-        height: 42px;
-        border-radius: 999px;
-        border: 2px solid var(--coral);
-        color: var(--coral);
-        display: grid;
-        place-items: center;
-        font-size: 1.3rem;
-      }
+.info-row:last-child {
+  padding-bottom: 0;
+  border-bottom: none;
+}
 
-      .info-row h3 {
-        margin: 0 0 4px;
-        font-family: "Barlow Condensed", sans-serif;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        font-size: 1.25rem;
-        color: var(--teal);
-      }
+.info-icon {
+  display: none;
+}
+
+.info-row h3 {
+  margin: 0 0 10px;
+  font-family: "Oswald", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 8px;
+  font-size: clamp(1.65rem, 3vw, 2.2rem);
+  font-weight: 400;
+  color: #f85f94;
+  text-shadow: 0 4px 12px rgba(254, 1, 155, 0.16);
+}
 
       .info-row p {
         margin: 0;
@@ -1325,9 +1325,7 @@ const tickerFlavors = [...flavors, ...flavors];
 }
 
 .info-row {
-  grid-template-columns: 1fr;
   text-align: center;
-  gap: 8px;
   max-width: 100%;
 }
 
@@ -1360,7 +1358,7 @@ const tickerFlavors = [...flavors, ...flavors];
 "servesCuisine": "Ice cream",
 "url": "https://thebiggchillicecream.netlify.app/",
         "logo": "https://thebiggchillicecream.netlify.app/logo-transparent.png",
-        "image": "https://thebiggchillicecream.netlify.app/shop-front.png",
+        "image": "https://thebiggchillicecream.netlify.app/shop-front.webp",
         "description": "The Bigg Chill serves handcrafted small-batch ice cream, rotating flavors, gift cards, and catering in Cody, Wyoming.",
         "telephone": "+1-307-250-7164",
         "email": "biggchillmanagment@gmail.com",
@@ -1516,7 +1514,7 @@ const tickerFlavors = [...flavors, ...flavors];
     <div class="story-layout">
       <div class="story-left">
         <img
-  src="/story-family.png"
+  src="/story-family.webp"
   alt="The McVey family at The Bigg Chill"
   class="story-photo story-photo-family"
   loading="lazy"
@@ -1573,7 +1571,7 @@ const tickerFlavors = [...flavors, ...flavors];
 
       <div class="story-right">
         <img
-  src="/story-machine.png"
+  src="/story-machine.webp"
   alt="Handcrafted ice cream being made"
   class="story-photo story-photo-machine"
   loading="lazy"
@@ -1581,7 +1579,7 @@ const tickerFlavors = [...flavors, ...flavors];
 />
 
         <img
-  src="/shop-front.png"
+  src="/shop-front.webp"
   alt="The Bigg Chill storefront in Cody Wyoming"
   class="story-photo story-photo-shop"
   loading="lazy"
@@ -1635,7 +1633,7 @@ const tickerFlavors = [...flavors, ...flavors];
           </div>
 
           <div class="visit-photo">
-            <img src="/shop-front.png" alt="The Bigg Chill storefront" />
+            <img src="/shop-front.webp" alt="The Bigg Chill storefront" />
           </div>
 
           <div class="visit-info">
@@ -1698,7 +1696,7 @@ const tickerFlavors = [...flavors, ...flavors];
 
           <div class="gift-scoop">
   <img
-    src="/hero-flavor-4.JPG"
+    src="/hero-flavor-4.webp"
     alt="A scoop of Bigg Chill ice cream"
     loading="lazy"
     decoding="async"
@@ -1714,37 +1712,37 @@ const tickerFlavors = [...flavors, ...flavors];
 
         <div class="social-strip">
   <img
-    src="/community-1.JPG"
+    src="/community-1.webp"
     alt="Bigg Chill community moment 1"
     loading="lazy"
     decoding="async"
   />
   <img
-    src="/community-2.jpg"
+    src="/community-2.webp"
     alt="Bigg Chill community moment 2"
     loading="lazy"
     decoding="async"
   />
   <img
-    src="/community-3.png"
+    src="/community-3.webp"
     alt="Bigg Chill community moment 3"
     loading="lazy"
     decoding="async"
   />
   <img
-    src="/community-4.png"
+    src="/community-4.webp"
     alt="Bigg Chill community moment 4"
     loading="lazy"
     decoding="async"
   />
   <img
-    src="/community-5.png"
+    src="/community-5.webp"
     alt="Bigg Chill community moment 5"
     loading="lazy"
     decoding="async"
   />
   <img
-    src="/community-6.png"
+    src="/community-6.webp"
     alt="Bigg Chill community moment 6"
     loading="lazy"
     decoding="async"
@@ -1833,32 +1831,37 @@ const tickerFlavors = [...flavors, ...flavors];
       });
 
       const heroSlides = [
-        {
-          label: "Featured Flavor",
-          flavor: "Strawberry Cheesecake",
-          note: "Creamy, fruity & oh-so dreamy.",
-        },
-        {
-          label: "Small-Batch Favorite",
-          flavor: "Cookie Dough",
-          note: "A classic scoop made the Bigg Chill way.",
-        },
-        {
-          label: "Rotating Monthly",
-          flavor: "Seasonal Scoops",
-          note: "New flavors worth coming back for.",
-        },
-        {
-          label: "Made In Cody",
-          flavor: "Handcrafted Ice Cream",
-          note: "Fresh, thoughtful, and made with care.",
-        },
-        {
-          label: "Fan Favorite",
-          flavor: "Bigg Chill Classics",
-          note: "The flavors people ask for again and again.",
-        },
-      ];
+  {
+    image: "/hero-flavor-1.webp",
+    label: "Featured Flavor",
+    flavor: "Strawberry Cheesecake",
+    note: "Creamy, fruity & oh-so dreamy.",
+  },
+  {
+    image: "/hero-flavor-2.webp",
+    label: "Small-Batch Favorite",
+    flavor: "Cookie Dough",
+    note: "A classic scoop made the Bigg Chill way.",
+  },
+  {
+    image: "/hero-flavor-3.webp",
+    label: "Rotating Monthly",
+    flavor: "Seasonal Scoops",
+    note: "New flavors worth coming back for.",
+  },
+  {
+    image: "/hero-flavor-4.webp",
+    label: "Made In Cody",
+    flavor: "Handcrafted Ice Cream",
+    note: "Fresh, thoughtful, and made with care.",
+  },
+  {
+    image: "/hero-flavor-5.webp",
+    label: "Fan Favorite",
+    flavor: "Bigg Chill Classics",
+    note: "The flavors people ask for again and again.",
+  },
+];
 
       const slides = Array.from(document.querySelectorAll(".hero-slide"));
       const dots = Array.from(document.querySelectorAll(".hero-dot"));
