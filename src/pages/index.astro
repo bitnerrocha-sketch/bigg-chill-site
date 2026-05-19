@@ -1,5 +1,38 @@
 ---
-const giftCardLink = "https://app.squareup.com/gift/MLQY19DJP25AS/order";
+import { siteConfig, absoluteUrl } from "../lib/siteConfig";
+
+const giftCardLink = siteConfig.giftCardUrl;
+const canonicalUrl = absoluteUrl(Astro.url.pathname);
+const ogImageUrl = absoluteUrl(siteConfig.ogImage);
+
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "IceCreamShop",
+  name: siteConfig.name,
+  priceRange: "$$",
+  servesCuisine: "Ice cream",
+  url: absoluteUrl("/"),
+  logo: absoluteUrl(siteConfig.logo),
+  image: absoluteUrl(siteConfig.brandImage),
+  description: siteConfig.description,
+  telephone: siteConfig.business.phone,
+  email: siteConfig.business.email,
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: siteConfig.business.streetAddress,
+    addressLocality: siteConfig.business.city,
+    addressRegion: siteConfig.business.state,
+    postalCode: siteConfig.business.postalCode,
+    addressCountry: siteConfig.business.country,
+  },
+  openingHoursSpecification: siteConfig.hours.days.map((day) => ({
+    "@type": "OpeningHoursSpecification",
+    dayOfWeek: day,
+    opens: siteConfig.hours.opens,
+    closes: siteConfig.hours.closes,
+  })),
+  sameAs: [siteConfig.social.instagram, siteConfig.social.facebook],
+};
 
 const heroSlides = [
   {
@@ -11,8 +44,8 @@ const heroSlides = [
   {
     image: "/hero-flavor-2.webp",
     label: "Small-Batch Favorite",
-    flavor: "Cookie Dough",
-    note: "A classic scoop made the Bigg Chill way.",
+    flavor: "Midnight Cookies",
+    note: "OREO® cookies blended into every creamy scoop.",
   },
   {
     image: "/hero-flavor-3.webp",
@@ -70,6 +103,29 @@ const tickerFlavors = [...flavors, ...flavors];
       content="The Bigg Chill serves handcrafted small-batch ice cream in Cody, Wyoming with rotating flavors, gift cards, catering, and a love for the local community."
     />
 
+    <link rel="canonical" href={canonicalUrl} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="The Bigg Chill" />
+    <meta property="og:title" content="The Bigg Chill | Handcrafted Ice Cream in Cody, Wyoming" />
+    <meta property="og:description" content="Handcrafted small-batch ice cream in Cody, Wyoming with rotating monthly flavors, catering, and gift cards." />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:alt" content="The Bigg Chill storefront in Cody, Wyoming" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="The Bigg Chill | Handcrafted Ice Cream in Cody, Wyoming" />
+    <meta name="twitter:description" content="Handcrafted small-batch ice cream in Cody, Wyoming with rotating monthly flavors, catering, and gift cards." />
+    <meta name="twitter:image" content={ogImageUrl} />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" href="/logo.png" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <meta name="theme-color" content="#ea605f" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,700;0,800;0,900;1,800;1,900&family=Pacifico&family=Oswald:wght@400;500;600;700&display=swap"
       rel="stylesheet"
@@ -210,10 +266,43 @@ const tickerFlavors = [...flavors, ...flavors];
       .menu-toggle {
         display: none;
         background: none;
-        border: none;
-        color: var(--teal);
-        font-size: 2.5rem;
+        border: 0;
+        padding: 0;
+        width: 42px;
         cursor: pointer;
+      }
+
+      .menu-toggle span {
+        display: block;
+        width: 100%;
+        height: 4px;
+        margin-bottom: 8px;
+        border-radius: 999px;
+        background: var(--teal);
+        transition: transform 0.2s ease, opacity 0.2s ease;
+      }
+
+      .menu-toggle span:last-child {
+        margin-bottom: 0;
+      }
+
+      .menu-toggle.open {
+        position: fixed;
+        top: 58px;
+        right: 32px;
+        z-index: 1000;
+      }
+
+      .menu-toggle.open span:nth-child(1) {
+        transform: translateY(11px) rotate(45deg);
+      }
+
+      .menu-toggle.open span:nth-child(2) {
+        opacity: 0;
+      }
+
+      .menu-toggle.open span:nth-child(3) {
+        transform: translateY(-11px) rotate(-45deg);
       }
 
       .mobile-menu {
@@ -229,17 +318,6 @@ const tickerFlavors = [...flavors, ...flavors];
 
       .mobile-menu.open {
         display: flex;
-      }
-
-      .close-menu {
-        position: absolute;
-        top: 28px;
-        right: 32px;
-        background: none;
-        border: none;
-        color: var(--teal);
-        font-size: 3rem;
-        cursor: pointer;
       }
 
       .mobile-links {
@@ -321,7 +399,6 @@ const tickerFlavors = [...flavors, ...flavors];
       .desktop-links a:focus-visible,
       .mobile-links a:focus-visible,
       .menu-toggle:focus-visible,
-      .close-menu:focus-visible,
       .hero-arrow:focus-visible,
       .hero-dot:focus-visible {
         outline: 3px solid rgba(234, 96, 95, 0.45);
@@ -1349,48 +1426,7 @@ const tickerFlavors = [...flavors, ...flavors];
         }
       }
     </style>
-      <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "IceCreamShop",
-        "name": "The Bigg Chill",
-"priceRange": "$$",
-"servesCuisine": "Ice cream",
-"url": "https://thebiggchillicecream.netlify.app/",
-        "logo": "https://thebiggchillicecream.netlify.app/logo-transparent.png",
-        "image": "https://thebiggchillicecream.netlify.app/shop-front.webp",
-        "description": "The Bigg Chill serves handcrafted small-batch ice cream, rotating flavors, gift cards, and catering in Cody, Wyoming.",
-        "telephone": "+1-307-250-7164",
-        "email": "biggchillmanagment@gmail.com",
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "1321 Sheridan Ave",
-          "addressLocality": "Cody",
-          "addressRegion": "WY",
-          "addressCountry": "US"
-        },
-        "openingHoursSpecification": [
-          {
-            "@type": "OpeningHoursSpecification",
-            "dayOfWeek": [
-              "Monday",
-              "Tuesday",
-              "Wednesday",
-              "Thursday",
-              "Friday",
-              "Saturday",
-              "Sunday"
-            ],
-            "opens": "12:00",
-            "closes": "21:00"
-          }
-        ],
-        "sameAs": [
-          "https://www.instagram.com/the.bigg.chill/",
-          "https://www.facebook.com/The.Bigg.Chill307/"
-        ]
-      }
-    </script>
+      <script type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)} />
   </head>
 
   <body>
@@ -1408,20 +1444,20 @@ const tickerFlavors = [...flavors, ...flavors];
         </div>
 
         <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false" type="button">
-          ☰
+          <span></span>
+          <span></span>
+          <span></span>
         </button>
-      </nav>
 
-      <div class="mobile-menu" id="mobileMenu">
-        <button class="close-menu" id="closeMenu" aria-label="Close menu" type="button">×</button>
-
-        <div class="mobile-links">
-          <a href="/">Home</a>
-          <a href="/menu">Menu</a>
-          <a href="/catering">Catering</a>
-          <a href={giftCardLink} target="_blank" rel="noopener">Gift Cards</a>
+        <div class="mobile-menu" id="mobileMenu">
+          <div class="mobile-links">
+            <a href="/">Home</a>
+            <a href="/menu">Menu</a>
+            <a href="/catering">Catering</a>
+            <a href={giftCardLink} target="_blank" rel="noopener">Gift Cards</a>
+          </div>
         </div>
-      </div>
+      </nav>
 
       <!-- HERO -->
       <section class="hero">
@@ -1490,7 +1526,7 @@ const tickerFlavors = [...flavors, ...flavors];
 
       <!-- INTRO -->
       <section class="intro">
-        <h2 class="section-kicker">Small-batch. Big heart.</h2>
+        <p class="section-kicker">Small-batch. Big heart.</p>
         <p>
           We're the McVey family, and we're passionate about ice cream. From years
           of traveling in search of the perfect scoop to creating our own unique
@@ -1713,37 +1749,37 @@ const tickerFlavors = [...flavors, ...flavors];
         <div class="social-strip">
   <img
     src="/community-1.webp"
-    alt="Bigg Chill community moment 1"
+    alt="Customers enjoying handcrafted ice cream at The Bigg Chill in Cody, Wyoming"
     loading="lazy"
     decoding="async"
   />
   <img
     src="/community-2.webp"
-    alt="Bigg Chill community moment 2"
+    alt="Friends sharing scoops of small-batch ice cream in Cody, Wyoming"
     loading="lazy"
     decoding="async"
   />
   <img
     src="/community-3.webp"
-    alt="Bigg Chill community moment 3"
+    alt="A family with cones from The Bigg Chill ice cream shop"
     loading="lazy"
     decoding="async"
   />
   <img
     src="/community-4.webp"
-    alt="Bigg Chill community moment 4"
+    alt="Locals gathered at The Bigg Chill on a summer day in Cody, WY"
     loading="lazy"
     decoding="async"
   />
   <img
     src="/community-5.webp"
-    alt="Bigg Chill community moment 5"
+    alt="Kids smiling with Bigg Chill ice cream cones in Cody, Wyoming"
     loading="lazy"
     decoding="async"
   />
   <img
     src="/community-6.webp"
-    alt="Bigg Chill community moment 6"
+    alt="The Bigg Chill community event in downtown Cody, Wyoming"
     loading="lazy"
     decoding="async"
   />
@@ -1808,22 +1844,18 @@ const tickerFlavors = [...flavors, ...flavors];
     <script>
       const menuToggle = document.getElementById("menuToggle");
       const mobileMenu = document.getElementById("mobileMenu");
-      const closeMenu = document.getElementById("closeMenu");
 
       const setMobileMenuState = (isOpen) => {
         if (!mobileMenu || !menuToggle) return;
 
         mobileMenu.classList.toggle("open", isOpen);
+        menuToggle.classList.toggle("open", isOpen);
         menuToggle.setAttribute("aria-expanded", String(isOpen));
         menuToggle.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
       };
 
       menuToggle?.addEventListener("click", () => {
         setMobileMenuState(!mobileMenu?.classList.contains("open"));
-      });
-
-      closeMenu?.addEventListener("click", () => {
-        setMobileMenuState(false);
       });
 
       mobileMenu?.querySelectorAll("a").forEach((link) => {
@@ -1840,8 +1872,8 @@ const tickerFlavors = [...flavors, ...flavors];
   {
     image: "/hero-flavor-2.webp",
     label: "Small-Batch Favorite",
-    flavor: "Cookie Dough",
-    note: "A classic scoop made the Bigg Chill way.",
+    flavor: "Midnight Cookies",
+    note: "OREO® cookies blended into every creamy scoop.",
   },
   {
     image: "/hero-flavor-3.webp",

@@ -1,6 +1,10 @@
 ---
-const giftCardLink = "https://app.squareup.com/gift/MLQY19DJP25AS/order";
-const directionsLink = "https://www.google.com/maps/search/?api=1&query=The%20Bigg%20Chill%20Cody%20WY";
+import { siteConfig, absoluteUrl } from "../lib/siteConfig";
+
+const giftCardLink = siteConfig.giftCardUrl;
+const directionsLink = siteConfig.directionsUrl;
+const canonicalUrl = absoluteUrl(Astro.url.pathname);
+const ogImageUrl = absoluteUrl(siteConfig.ogImage);
 
 const currentFlavors = [
   {
@@ -176,6 +180,55 @@ const badgeIcons = {
   "Dairy-Free": "🥛",
   "Plant-Based": "🌿",
 };
+
+// Group flavors by category for the Menu schema.
+const menuSections = Array.from(
+  currentFlavors.reduce((sections, flavor) => {
+    const list = sections.get(flavor.category) ?? [];
+    list.push(flavor);
+    sections.set(flavor.category, list);
+    return sections;
+  }, new Map<string, typeof currentFlavors>())
+).map(([category, items]) => ({
+  "@type": "MenuSection",
+  name: category,
+  hasMenuItem: items.map((flavor) => ({
+    "@type": "MenuItem",
+    name: flavor.name,
+    description: flavor.description,
+    suitableForDiet: flavor.tags
+      .filter((tag) => tag === "Gluten-Friendly" || tag === "Dairy-Free" || tag === "Plant-Based")
+      .map((tag) => {
+        if (tag === "Gluten-Friendly") return "https://schema.org/GlutenFreeDiet";
+        if (tag === "Dairy-Free") return "https://schema.org/LowLactoseDiet";
+        return "https://schema.org/VeganDiet";
+      }),
+  })),
+}));
+
+const menuSchema = {
+  "@context": "https://schema.org",
+  "@type": "Menu",
+  name: "The Bigg Chill Ice Cream Menu",
+  url: canonicalUrl,
+  description:
+    "Rotating monthly menu of handcrafted small-batch ice cream at The Bigg Chill in Cody, Wyoming, including classic, limited edition, boozy, and dairy-free flavors.",
+  provider: {
+    "@type": "IceCreamShop",
+    name: siteConfig.name,
+    url: absoluteUrl("/"),
+    telephone: siteConfig.business.phone,
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: siteConfig.business.streetAddress,
+      addressLocality: siteConfig.business.city,
+      addressRegion: siteConfig.business.state,
+      postalCode: siteConfig.business.postalCode,
+      addressCountry: siteConfig.business.country,
+    },
+  },
+  hasMenuSection: menuSections,
+};
 ---
 
 <!doctype html>
@@ -190,12 +243,35 @@ const badgeIcons = {
       content="Explore The Bigg Chill's rotating monthly menu of handcrafted ice cream flavors, seasonal scoops, dairy-free options, and small-batch ice cream in Cody, Wyoming."
     />
 
+    <link rel="canonical" href={canonicalUrl} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="The Bigg Chill" />
+    <meta property="og:title" content="Current Ice Cream Flavors in Cody, WY | The Bigg Chill" />
+    <meta property="og:description" content="Rotating monthly menu of handcrafted small-batch ice cream flavors at The Bigg Chill in Cody, Wyoming. Dairy-free, gluten-friendly, and boozy options available." />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:alt" content="The Bigg Chill storefront in Cody, Wyoming" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Current Ice Cream Flavors in Cody, WY | The Bigg Chill" />
+    <meta name="twitter:description" content="Rotating monthly menu of handcrafted small-batch ice cream flavors at The Bigg Chill in Cody, Wyoming." />
+    <meta name="twitter:image" content={ogImageUrl} />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" href="/logo.png" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <meta name="theme-color" content="#ea605f" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
   href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,700;0,800;0,900;1,800;1,900&family=Cooper+Black&family=Oswald:wght@400;500;600;700&family=Pacifico&family=Nunito:wght@400;600;700;800;900&display=swap"
   rel="stylesheet"
 />
+
+    <script type="application/ld+json" set:html={JSON.stringify(menuSchema)} />
 
     <style is:global>
       :root {
@@ -1409,7 +1485,7 @@ const badgeIcons = {
         <i class="sprinkle sprinkle-3"></i>
         <i class="sprinkle sprinkle-4"></i>
 
-        <h1>Current Flavors</h1>
+        <h1>Current Ice Cream Flavors in Cody, WY</h1>
 
         <p class="hero-copy">
           Our rotating monthly menu features artisanal ice cream, seasonal scoops,

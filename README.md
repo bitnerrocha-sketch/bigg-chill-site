@@ -1,43 +1,36 @@
-# Astro Starter Kit: Minimal
+# The Bigg Chill — Website
+
+Handcrafted small-batch ice cream in Cody, Wyoming. Astro site, three pages: `/`, `/menu`, `/catering`.
+
+## Local development
 
 ```sh
-npm create astro@latest -- --template minimal
+npm install
+npm run dev      # http://localhost:4321
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Build
 
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+```sh
+npm run build    # outputs to ./dist/
+npm run preview  # serves the build locally
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## Project structure
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+- `src/pages/` — one file per route.
+- `src/lib/siteConfig.ts` — **single source of truth** for site URL, business info (NAP), hours, social links, and the gift-card URL. Update this when contact info, hours, or the production domain changes.
+- `public/` — static assets served as-is: `robots.txt`, `sitemap.xml`, `manifest.webmanifest`, favicons, images.
 
-Any static assets, like images, can be placed in the `public/` directory.
+## Before public launch
 
-## 🧞 Commands
+1. Set the production domain in **three places** (keep them in sync):
+   - `src/lib/siteConfig.ts` → `siteUrl`
+   - `astro.config.mjs` → `site`
+   - `public/robots.txt` and `public/sitemap.xml`
+2. Replace `public/shop-front.webp` (currently used as the social-share image) with a branded 1200×630 OG image, or point `siteConfig.ogImage` at one.
+3. Run a Lighthouse pass; address remaining items from `AUDIT.md`.
 
-All commands are run from the root of the project, from a terminal:
+## Hosting
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Deploys to Netlify. The catering quote form uses Netlify Forms (`data-netlify="true"`).

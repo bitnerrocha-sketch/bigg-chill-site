@@ -1,4 +1,105 @@
 ---
+import { siteConfig, absoluteUrl } from "../lib/siteConfig";
+
+const giftCardLink = siteConfig.giftCardUrl;
+const canonicalUrl = absoluteUrl(Astro.url.pathname);
+const ogImageUrl = absoluteUrl(siteConfig.ogImage);
+
+const cateringFaqs = [
+  {
+    question: "Do you offer catering for kids birthday parties?",
+    answer:
+      "Yes. Bulk tubs, pre-scooped servings, cart rental, and space rental are all great options for kids birthday parties in Cody and nearby areas.",
+  },
+  {
+    question: "Do you cater weddings?",
+    answer:
+      "Yes. Our wedding package includes custom flavor options, cart rental, pre-scooping, and serving supplies for up to 350 guests.",
+  },
+  {
+    question: "Can we request custom flavors?",
+    answer:
+      "Yes. Custom flavors may be available depending on timing, order size, and flavor request. Please allow extra notice for custom flavors.",
+  },
+  {
+    question: "Do you deliver outside Cody?",
+    answer:
+      "Delivery may be available to nearby communities. Delivery outside Cody city limits may require an additional distance charge.",
+  },
+  {
+    question: "How far in advance should we book?",
+    answer:
+      "Please allow at least 1 week of lead time. Larger events, weddings, and custom flavor requests may need additional notice.",
+  },
+];
+
+const serviceAreas = [
+  "Cody",
+  "Powell",
+  "Meeteetse",
+  "Wapiti",
+  "Ralston",
+  "Greybull",
+  "Lovell",
+  "Basin",
+];
+
+const cateringServiceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: "Ice Cream Catering",
+  serviceType: "Ice cream catering",
+  description:
+    "Handcrafted ice cream catering for birthdays, weddings, school events, and celebrations in Cody, Wyoming and surrounding communities. Bulk tubs, pre-scooped servings, cart rental, wedding packages, and venue rental available.",
+  url: canonicalUrl,
+  provider: {
+    "@type": "IceCreamShop",
+    name: siteConfig.name,
+    url: absoluteUrl("/"),
+    telephone: siteConfig.business.phone,
+    email: siteConfig.business.email,
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: siteConfig.business.streetAddress,
+      addressLocality: siteConfig.business.city,
+      addressRegion: siteConfig.business.state,
+      postalCode: siteConfig.business.postalCode,
+      addressCountry: siteConfig.business.country,
+    },
+  },
+  areaServed: serviceAreas.map((name) => ({
+    "@type": "City",
+    name,
+    containedInPlace: {
+      "@type": "State",
+      name: "Wyoming",
+    },
+  })),
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "Catering options",
+    itemListElement: [
+      { "@type": "Offer", name: "Bulk Ice Cream Tubs" },
+      { "@type": "Offer", name: "Bulk Pre-Scooped Servings" },
+      { "@type": "Offer", name: "Cart Rental" },
+      { "@type": "Offer", name: "Wedding Package" },
+      { "@type": "Offer", name: "Space Rental" },
+    ],
+  },
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: cateringFaqs.map((faq) => ({
+    "@type": "Question",
+    name: faq.question,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: faq.answer,
+    },
+  })),
+};
 ---
 
 <html lang="en">
@@ -11,10 +112,36 @@
       content="Bring handcrafted ice cream to your next event with The Bigg Chill’s ice cream catering in Cody, WY. Bulk tubs, pre-scooped servings, cart rental, weddings, birthday parties, and more."
     />
 
+    <link rel="canonical" href={canonicalUrl} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="The Bigg Chill" />
+    <meta property="og:title" content="Ice Cream Catering in Cody, WY | The Bigg Chill" />
+    <meta property="og:description" content="Handcrafted ice cream catering for birthdays, weddings, school events, and celebrations across Cody and nearby Wyoming communities." />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:alt" content="The Bigg Chill handcrafted ice cream cart" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Ice Cream Catering in Cody, WY | The Bigg Chill" />
+    <meta name="twitter:description" content="Handcrafted ice cream catering for birthdays, weddings, school events, and celebrations across Cody and nearby Wyoming communities." />
+    <meta name="twitter:image" content={ogImageUrl} />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" href="/logo.png" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <meta name="theme-color" content="#ea605f" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,700;0,800;0,900;1,800;1,900&family=Oswald:wght@400;500;600;700&family=Pacifico&display=swap"
       rel="stylesheet"
     />
+
+    <script type="application/ld+json" set:html={JSON.stringify(cateringServiceSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
 
     <style>
       :root {
@@ -164,6 +291,7 @@
         height: 4px;
         background: var(--teal);
         border-radius: 999px;
+        transition: transform 0.2s ease, opacity 0.2s ease;
       }
 
       .nav-links {

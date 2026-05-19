@@ -1,0 +1,23 @@
+{
+  "name": "The Bigg Chill",
+  "short_name": "Bigg Chill",
+  "description": "Handcrafted small-batch ice cream in Cody, Wyoming.",
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#ea605f",
+  "background_color": "#ffece0",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
