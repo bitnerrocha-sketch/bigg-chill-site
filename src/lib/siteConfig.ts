@@ -50,7 +50,7 @@ export const siteConfig = {
   directionsUrl:
     "https://www.google.com/maps/search/?api=1&query=The%20Bigg%20Chill%20Cody%20WY",
 
-  logo: "/logo-transparent.png",
+  logo: "/logo-transparent.webp",
   brandImage: "/shop-front.webp",
   // Used as the social-share preview image. Replace with a branded 1200x630 image when available.
   ogImage: "/shop-front.webp",
