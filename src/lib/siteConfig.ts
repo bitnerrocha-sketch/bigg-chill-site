@@ -27,18 +27,20 @@ export const siteConfig = {
   },
 
   hours: {
-    days: [
-      "Monday",
-      "Tuesday",
-      "Wednesday",
-      "Thursday",
-      "Friday",
-      "Saturday",
-      "Sunday",
-    ] as const,
-    opens: "12:00",
-    closes: "21:00",
-    display: "12–9 PM",
+    schedules: [
+      {
+        days: ["Monday", "Tuesday", "Wednesday", "Thursday", "Sunday"] as const,
+        opens: "12:00",
+        closes: "21:00",
+        display: "12–9 PM",
+      },
+      {
+        days: ["Friday", "Saturday"] as const,
+        opens: "12:00",
+        closes: "22:00",
+        display: "12–10 PM",
+      },
+    ],
   },
 
   social: {

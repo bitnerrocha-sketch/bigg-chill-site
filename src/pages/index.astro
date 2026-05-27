@@ -25,12 +25,14 @@ const localBusinessSchema = {
     postalCode: siteConfig.business.postalCode,
     addressCountry: siteConfig.business.country,
   },
-  openingHoursSpecification: siteConfig.hours.days.map((day) => ({
-    "@type": "OpeningHoursSpecification",
-    dayOfWeek: day,
-    opens: siteConfig.hours.opens,
-    closes: siteConfig.hours.closes,
-  })),
+  openingHoursSpecification: siteConfig.hours.schedules.flatMap((s) =>
+    s.days.map((day) => ({
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: day,
+      opens: s.opens,
+      closes: s.closes,
+    }))
+  ),
   sameAs: [siteConfig.social.instagram, siteConfig.social.facebook],
 };
 
@@ -1690,8 +1692,8 @@ const tickerFlavors = [...flavors, ...flavors];
   Tuesday: 12–9 PM<br />
   Wednesday: 12–9 PM<br />
   Thursday: 12–9 PM<br />
-  Friday: 12–9 PM<br />
-  Saturday: 12–9 PM<br />
+  Friday: 12–10 PM<br />
+  Saturday: 12–10 PM<br />
   Sunday: 12–9 PM
 </p>
               </div>
@@ -1823,8 +1825,8 @@ const tickerFlavors = [...flavors, ...flavors];
               Tuesday: 12–9 PM<br />
               Wednesday: 12–9 PM<br />
               Thursday: 12–9 PM<br />
-              Friday: 12–9 PM<br />
-              Saturday: 12–9 PM<br />
+              Friday: 12–10 PM<br />
+              Saturday: 12–10 PM<br />
               Sunday: 12–9 PM
             </p>
 
