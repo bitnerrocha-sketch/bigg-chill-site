@@ -843,12 +843,13 @@ const tickerFlavors = [...flavors, ...flavors];
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  position: relative;
   background:
     radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.78), transparent 48%),
     linear-gradient(180deg, #ffd7ec, #fff0f8);
   border: 2px solid rgba(254, 1, 155, 0.48);
   border-radius: 24px;
-  padding: clamp(26px, 4vw, 44px);
+  padding: clamp(36px, 5vw, 54px) clamp(26px, 4vw, 44px);
   text-align: center;
   box-shadow: 0 18px 38px rgba(54, 91, 109, 0.1);
 }
@@ -860,14 +861,31 @@ const tickerFlavors = [...flavors, ...flavors];
   line-height: 1.15;
   font-style: italic;
   color: var(--pink-hot);
+  position: relative;
+  z-index: 1;
 }
 
 .quote-mark {
   font-family: Georgia, "Times New Roman", serif;
   color: var(--pink-hot);
-  font-size: clamp(2.2rem, 4vw, 4rem);
-  line-height: 0.75;
-  opacity: 0.8;
+  font-size: clamp(3rem, 5vw, 5rem);
+  line-height: 1;
+  opacity: 0.45;
+  position: absolute;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Opening quote — top-left */
+.quote-mark:first-child {
+  top: 14px;
+  left: 20px;
+}
+
+/* Closing quote — bottom-right */
+.quote-mark:last-child {
+  bottom: 14px;
+  right: 20px;
 }
 
       /* FLAVOR TICKER */
@@ -1390,6 +1408,7 @@ const tickerFlavors = [...flavors, ...flavors];
 
 .story-quote-box {
   min-height: auto;
+  padding: 44px 28px; /* enough room for the absolutely-positioned quote marks */
 }
 
 .story-quote-box p {
@@ -1587,14 +1606,14 @@ const tickerFlavors = [...flavors, ...flavors];
 />
 
         <div class="story-quote-box">
-          <div class="quote-mark">"</div>
+          <div class="quote-mark">&ldquo;</div>
           <p>
             Every flavor is<br />
             a reflection of our<br />
             family's journey and<br />
             dedication to the craft.
           </p>
-          <div class="quote-mark">"</div>
+          <div class="quote-mark">&rdquo;</div>
         </div>
       </div>
 
@@ -1987,6 +2006,18 @@ const tickerFlavors = [...flavors, ...flavors];
       });
 
       startSlider();
+
+      // Restart the ticker animation after fonts have loaded.
+      // Without this, the animation starts with the fallback font's pill widths,
+      // then Barlow Condensed loads and reflows the text — making the -50% loop
+      // point misalign and causing some pills to appear missing or delayed.
+      document.fonts.ready.then(() => {
+        const track = document.querySelector(".ticker-track");
+        if (!track) return;
+        track.style.animation = "none";
+        void track.offsetWidth; // force reflow so the browser re-measures pill widths
+        track.style.animation = "";
+      });
     </script>
   </body>
 </html>
