@@ -850,27 +850,47 @@ const menuSchema = {
       }
 
       .bigg-menu-page .dairy-seal {
-        width: 138px;
-        height: 138px;
+        width: 160px;
+        height: 160px;
         margin: 0 auto;
-        border: 3px solid var(--bigg-lavender);
-        border-radius: 999px;
-        color: var(--bigg-lavender);
         display: flex;
         align-items: center;
         justify-content: center;
-        flex-direction: column;
-        font-family: "Oswald", Arial, sans-serif;
-        font-size: 0.82rem;
-        font-weight: 700;
-        line-height: 1.18;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
       }
 
       .bigg-menu-page .dairy-seal-icon {
         font-size: 2rem;
         margin-bottom: 5px;
+      }
+
+      .bigg-menu-page .dairy-seal-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+
+      .bigg-menu-page .dairy-item-photo {
+        position: relative;
+        width: 96px;
+        height: 96px;
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: unset !important;
+        filter: none !important;
+      }
+
+      .bigg-menu-page .dairy-item-photo img {
+        width: 118px !important;
+        height: 118px !important;
+        border-radius: 999px !important;
+        object-fit: cover !important;
+        display: block !important;
+        box-shadow: 0 6px 20px rgba(54, 91, 109, 0.22);
+        position: relative;
+        z-index: 1;
       }
 
       .bigg-menu-page .dairy-header h2 {
@@ -1117,7 +1137,7 @@ const menuSchema = {
         display: block;
         font-family: "Pacifico", cursive;
         font-size: 1.15rem;
-        margin-left: 28px;
+        margin-left: 6px;
         margin-bottom: -7px;
       }
 
@@ -1306,6 +1326,12 @@ const menuSchema = {
         .bigg-menu-page .footer-inner {
           grid-template-columns: 1fr;
           text-align: center;
+        }
+
+        .bigg-menu-page .footer-brand-mark {
+          width: fit-content;
+          margin: 0 auto;
+          text-align: left;
         }
 
         .bigg-menu-page .social-icons {
@@ -1614,8 +1640,7 @@ const menuSchema = {
           <section class="dairy-free-section" id="dairy-free">
             <div class="dairy-header">
               <div class="dairy-seal">
-                <span class="dairy-seal-icon">🌿</span>
-                Dairy-Free<br />& Plant-Based
+                <img src="/cookie-monster-dairy-free-ice-cream-cody.webp" alt="Cookie Monster ice cream" class="dairy-seal-img" />
               </div>
 
               <div>
