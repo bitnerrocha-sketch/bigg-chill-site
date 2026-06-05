@@ -64,6 +64,20 @@ const currentFlavors = [
     tags: ["Gluten-Friendly", "Nut-Free"],
   },
   {
+    name: "Dark Chocolate",
+    description: "Rich high quality cocoa blend for a deeper, more intense cocoa flavor.",
+    category: "Classic",
+    illustration: "darkChocolate",
+    tags: ["Gluten-Friendly", "Nut-Free"],
+  },
+  {
+    name: "London Fog",
+    description: "Creamy ice cream steeped with tea and a touch of pure bergamot.",
+    category: "Classic",
+    illustration: "londonFog",
+    tags: ["Gluten-Friendly", "Nut-Free"],
+  },
+  {
     name: "Birthday Cake",
     description: "Celebrate every day! Made with cake batter and swirls of icing.",
     category: "Limited Edition",
@@ -71,11 +85,11 @@ const currentFlavors = [
     tags: ["Nut-Free"],
   },
   {
-    name: "Mixed Berry Tart",
-    description: "Rich vanilla bean ice cream ribboned with juicy mixed berry swirl and studded with golden, buttery pie crust pieces.",
+    name: "Campfire Delight",
+    description: "Indulge in nostalgic bliss with the perfect harmony of graham cracker ice cream, chocolate chunks, and marshmallow swirls.",
     category: "Limited Edition",
-    illustration: "mixedBerryTart",
-    tags: ["Nut-Free"],
+    illustration: "campfireDelight",
+    tags: [],
   },
   {
     name: "Biscoff Cheesecake",
@@ -83,20 +97,6 @@ const currentFlavors = [
     category: "Limited Edition",
     illustration: "biscoffCheesecake",
     tags: ["Nut-Free"],
-  },
-  {
-    name: "Coffee Maple Bar",
-    description: "Bold coffee ice cream with a hint of maple, swirled with sweet, creamy maple frosting.",
-    category: "Limited Edition",
-    illustration: "coffeeMapleBar",
-    tags: ["Gluten-Friendly", "Nut-Free"],
-  },
-  {
-    name: "Raspberry Fudge",
-    description: "Lush chocolate ice cream packed with tangy raspberry swirls and rich, decadent fudge.",
-    category: "Limited Edition",
-    illustration: "raspberryFudge",
-    tags: ["Gluten-Friendly", "Nut-Free"],
   },
   {
     name: "Lemon Raspberry",
@@ -140,6 +140,13 @@ const currentFlavors = [
     illustration: "cookieMonster",
     tags: ["Dairy-Free", "Plant-Based", "Gluten-Friendly", "Nut-Free"],
   },
+  {
+    name: "Chocolate Mousse Pie",
+    description: "Rich chocolate ice cream with layers of decadent chocolate mousse folded in decorated with an oreo cookie crumble.",
+    category: "Dairy-Free",
+    illustration: "chocolateMoussePie",
+    tags: ["Dairy-Free", "Plant-Based", "Gluten-Friendly", "Nut-Free"],
+  },
 ];
 
 const dairyFreeFlavors = [
@@ -147,6 +154,12 @@ const dairyFreeFlavors = [
     name: "Cookie Monster",
     description: "Unleash your inner cookie monster with our creamy vanilla coconut ice cream, packed with generous chunks of chocolate chip cookie dough and Oreo pieces.",
     illustration: "cookieMonster",
+    tags: ["Dairy-Free", "Plant-Based"],
+  },
+  {
+    name: "Chocolate Mousse Pie",
+    description: "Rich chocolate ice cream with layers of decadent chocolate mousse folded in decorated with an oreo cookie crumble.",
+    illustration: "chocolateMoussePie",
     tags: ["Dairy-Free", "Plant-Based"],
   },
 ];
@@ -162,16 +175,17 @@ const illustrationMap = {
   midnightCookies: "/flavor-icons/midnight-cookies.webp",
   chocolateBrownie: "/flavor-icons/chocolate-brownie.webp",
   birthdayCake: "/flavor-icons/birthday-cake.webp",
-  mixedBerryTart: "/flavor-icons/mixed-berry-tart.webp",
+  darkChocolate: "/flavor-icons/dark-chocolate.webp",
+  londonFog: "/flavor-icons/london-fog.webp",
+  campfireDelight: "/flavor-icons/campfire-delight.webp",
   biscoffCheesecake: "/flavor-icons/biscoff-cheesecake.webp",
-  coffeeMapleBar: "/flavor-icons/coffee-maple-bar.webp",
-  raspberryFudge: "/flavor-icons/raspberry-fudge.webp",
   lemonRaspberry: "/flavor-icons/lemon-raspberry.webp",
   stuffedPbCup: "/flavor-icons/stuffed-pb-cup.webp",
   dubaiChocolateBar: "/flavor-icons/dubai-chocolate-bar.webp",
   bourbonMaplePecan: "/flavor-icons/bourbon-maple-pecan.webp",
   tequilaKeylimePie: "/flavor-icons/tequila-keylime-pie.webp",
   cookieMonster: "/flavor-icons/cookie-monster-dairy-free.webp",
+  chocolateMoussePie: "/flavor-icons/chocolate-mousse-pie.webp",
 };
 
 const badgeIcons = {
@@ -1137,7 +1151,7 @@ const menuSchema = {
         display: block;
         font-family: "Pacifico", cursive;
         font-size: 1.15rem;
-        margin-left: 6px;
+        margin-left: 28px;
         margin-bottom: -7px;
       }
 
@@ -1328,12 +1342,6 @@ const menuSchema = {
           text-align: center;
         }
 
-        .bigg-menu-page .footer-brand-mark {
-          width: fit-content;
-          margin: 0 auto;
-          text-align: left;
-        }
-
         .bigg-menu-page .social-icons {
           justify-content: center;
         }
@@ -1475,6 +1483,7 @@ const menuSchema = {
           min-height: 105px;
         }
       }
+
     </style>
   </head>
 
