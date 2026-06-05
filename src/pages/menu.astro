@@ -281,9 +281,17 @@ const menuSchema = {
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-  href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,700;0,800;0,900;1,800;1,900&family=Cooper+Black&family=Oswald:wght@400;500;600;700&family=Pacifico&family=Nunito:wght@400;600;700;800;900&display=swap"
-  rel="stylesheet"
-/>
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,700;0,800;0,900;1,800;1,900&family=Cooper+Black&family=Oswald:wght@400;500;600;700&family=Pacifico&family=Nunito:wght@400;600;700;800;900&display=swap"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <noscript>
+      <link
+        href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,700;0,800;0,900;1,800;1,900&family=Cooper+Black&family=Oswald:wght@400;500;600;700&family=Pacifico&family=Nunito:wght@400;600;700;800;900&display=swap"
+        rel="stylesheet"
+      />
+    </noscript>
 
     <script type="application/ld+json" set:html={JSON.stringify(menuSchema)} />
 
@@ -1496,6 +1504,8 @@ const menuSchema = {
     src="/logo-transparent.webp"
     alt="The Bigg Chill Ice Cream Cody, Wyoming"
     class="site-logo-img"
+    width="546"
+    height="546"
   />
 </a>
 
@@ -1626,6 +1636,8 @@ const menuSchema = {
   alt=""
   loading="lazy"
   decoding="async"
+  width="384"
+  height="384"
 />
 </div>
 
@@ -1649,7 +1661,7 @@ const menuSchema = {
           <section class="dairy-free-section" id="dairy-free">
             <div class="dairy-header">
               <div class="dairy-seal">
-                <img src="/cookie-monster-dairy-free-ice-cream-cody.webp" alt="Cookie Monster ice cream" class="dairy-seal-img" />
+                <img src="/cookie-monster-dairy-free-ice-cream-cody.webp" alt="Cookie Monster ice cream" class="dairy-seal-img" loading="lazy" decoding="async" width="1254" height="1254" />
               </div>
 
               <div>
@@ -1671,6 +1683,8 @@ const menuSchema = {
   alt=""
   loading="lazy"
   decoding="async"
+  width="384"
+  height="384"
 />
 </div>
                     <div>
@@ -1713,6 +1727,8 @@ const menuSchema = {
   alt=""
   loading="lazy"
   decoding="async"
+  width="1000"
+  height="749"
 />
   </div>
 

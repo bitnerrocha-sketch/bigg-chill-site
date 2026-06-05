@@ -54,8 +54,7 @@ export const siteConfig = {
 
   logo: "/logo-transparent.webp",
   brandImage: "/shop-front.webp",
-  // Used as the social-share preview image. Replace with a branded 1200x630 image when available.
-  ogImage: "/shop-front.webp",
+  ogImage: "/og-image.webp",
   themeColor: "#ea605f",
 } as const;
 

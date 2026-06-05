@@ -37,36 +37,11 @@ const localBusinessSchema = {
 };
 
 const heroSlides = [
-  {
-    image: "/hero-flavor-1.webp",
-    label: "Featured Flavor",
-    flavor: "Strawberry Cheesecake",
-    note: "Creamy, fruity & oh-so dreamy.",
-  },
-  {
-    image: "/hero-flavor-2.webp",
-    label: "Small-Batch Favorite",
-    flavor: "Midnight Cookies",
-    note: "OREO® cookies blended into every creamy scoop.",
-  },
-  {
-    image: "/hero-flavor-3.webp",
-    label: "Rotating Monthly",
-    flavor: "Seasonal Scoops",
-    note: "New flavors worth coming back for.",
-  },
-  {
-    image: "/hero-flavor-4.webp",
-    label: "Made In Cody",
-    flavor: "Handcrafted Ice Cream",
-    note: "Fresh, thoughtful, and made with care.",
-  },
-  {
-    image: "/hero-flavor-5.webp",
-    label: "Fan Favorite",
-    flavor: "Bigg Chill Classics",
-    note: "The flavors people ask for again and again.",
-  },
+  { image: "/hero-flavor-1.webp", flavor: "Strawberry Cheesecake" },
+  { image: "/hero-flavor-2.webp", flavor: "Midnight Cookies" },
+  { image: "/hero-flavor-3.webp", flavor: "Seasonal Scoops" },
+  { image: "/hero-flavor-4.webp", flavor: "Handcrafted Ice Cream" },
+  { image: "/hero-flavor-5.webp", flavor: "Bigg Chill Classics" },
 ];
 
 const flavors = [
@@ -556,49 +531,6 @@ const tickerFlavors = [...flavors, ...flavors];
           linear-gradient(90deg, rgba(255, 236, 224, 0.34), transparent 32%),
           radial-gradient(circle at 50% 50%, transparent 35%, rgba(54, 91, 109, 0.08));
         pointer-events: none;
-      }
-
-      .slide-label {
-  display: none;
-  position: absolute;
-  right: clamp(18px, 4vw, 44px);
-  bottom: clamp(22px, 4vw, 46px);
-  z-index: 3;
-  background: rgba(255, 248, 239, 0.94);
-  border: 2px solid rgba(54, 91, 109, 0.28);
-  box-shadow: var(--shadow);
-  border-radius: 10px;
-  padding: 18px 22px;
-  min-width: min(330px, calc(100% - 36px));
-  text-align: center;
-}
-
-      .slide-label small {
-        display: block;
-        font-family: "Barlow Condensed", sans-serif;
-        text-transform: uppercase;
-        color: var(--teal);
-        letter-spacing: 2px;
-        font-weight: 900;
-        margin-bottom: 4px;
-      }
-
-      .slide-label strong {
-        display: block;
-        font-family: "Barlow Condensed", sans-serif;
-        color: var(--teal);
-        font-size: 1.7rem;
-        line-height: 0.95;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-      }
-
-      .slide-label span {
-        display: block;
-        font-family: "Pacifico", cursive;
-        color: var(--coral);
-        font-size: 1rem;
-        margin-top: 6px;
       }
 
       .hero-arrow {
@@ -1343,18 +1275,6 @@ const tickerFlavors = [...flavors, ...flavors];
           width: 100%;
         }
 
-        .slide-label {
-          left: 16px;
-          right: 16px;
-          bottom: 44px;
-          min-width: auto;
-          padding: 14px;
-        }
-
-        .slide-label strong {
-          font-size: 1.3rem;
-        }
-
         .our-story {
   padding: 42px 12px;
 }
@@ -1481,7 +1401,7 @@ const tickerFlavors = [...flavors, ...flavors];
     <div class="page-shell">
       <nav class="nav">
         <a href="/" class="brand" aria-label="The Bigg Chill home">
-  <img src="/logo-transparent.webp" alt="The Bigg Chill" class="nav-logo" />
+  <img src="/logo-transparent.webp" alt="The Bigg Chill" class="nav-logo" width="546" height="546" />
 </a>
 
         <div class="desktop-links">
@@ -1543,6 +1463,8 @@ const tickerFlavors = [...flavors, ...flavors];
   loading={index === 0 ? "eager" : "lazy"}
   fetchpriority={index === 0 ? "high" : "low"}
   decoding="async"
+  width="1024"
+  height="1536"
 />
                 </div>
               ))
@@ -1550,12 +1472,6 @@ const tickerFlavors = [...flavors, ...flavors];
 
             <button class="hero-arrow prev" id="prevSlide" aria-label="Previous slide" type="button">‹</button>
             <button class="hero-arrow next" id="nextSlide" aria-label="Next slide" type="button">›</button>
-
-            <div class="slide-label" id="slideLabel">
-              <small>{heroSlides[0].label}</small>
-              <strong>{heroSlides[0].flavor}</strong>
-              <span>{heroSlides[0].note}</span>
-            </div>
 
             <div class="hero-dots" id="heroDots">
               {
@@ -1604,6 +1520,8 @@ const tickerFlavors = [...flavors, ...flavors];
   class="story-photo story-photo-family"
   loading="lazy"
   decoding="async"
+  width="1024"
+  height="1536"
 />
 
         <div class="story-quote-box">
@@ -1661,6 +1579,8 @@ const tickerFlavors = [...flavors, ...flavors];
   class="story-photo story-photo-machine"
   loading="lazy"
   decoding="async"
+  width="1086"
+  height="1448"
 />
 
         <img
@@ -1669,6 +1589,8 @@ const tickerFlavors = [...flavors, ...flavors];
   class="story-photo story-photo-shop"
   loading="lazy"
   decoding="async"
+  width="1448"
+  height="1086"
 />
       </div>
     </div>
@@ -1718,7 +1640,7 @@ const tickerFlavors = [...flavors, ...flavors];
           </div>
 
           <div class="visit-photo">
-            <img src="/shop-front.webp" alt="The Bigg Chill storefront" />
+            <img src="/shop-front.webp" alt="The Bigg Chill storefront" loading="lazy" decoding="async" width="1448" height="1086" />
           </div>
 
           <div class="visit-info">
@@ -1785,6 +1707,8 @@ const tickerFlavors = [...flavors, ...flavors];
     alt="A scoop of Bigg Chill ice cream"
     loading="lazy"
     decoding="async"
+    width="965"
+    height="1629"
   />
 </div>
         </div>
@@ -1801,36 +1725,48 @@ const tickerFlavors = [...flavors, ...flavors];
     alt="Customers enjoying handcrafted ice cream at The Bigg Chill in Cody, Wyoming"
     loading="lazy"
     decoding="async"
+    width="800"
+    height="533"
   />
   <img
     src="/community-2.webp"
     alt="Friends sharing scoops of small-batch ice cream in Cody, Wyoming"
     loading="lazy"
     decoding="async"
+    width="761"
+    height="800"
   />
   <img
     src="/community-3.webp"
     alt="A family with cones from The Bigg Chill ice cream shop"
     loading="lazy"
     decoding="async"
+    width="647"
+    height="800"
   />
   <img
     src="/community-4.webp"
     alt="Locals gathered at The Bigg Chill on a summer day in Cody, WY"
     loading="lazy"
     decoding="async"
+    width="800"
+    height="600"
   />
   <img
     src="/community-5.webp"
     alt="Kids smiling with Bigg Chill ice cream cones in Cody, Wyoming"
     loading="lazy"
     decoding="async"
+    width="800"
+    height="800"
   />
   <img
     src="/community-6.webp"
     alt="The Bigg Chill community event in downtown Cody, Wyoming"
     loading="lazy"
     decoding="async"
+    width="640"
+    height="800"
   />
 </div>
 
@@ -1913,42 +1849,8 @@ const tickerFlavors = [...flavors, ...flavors];
         link.addEventListener("click", () => setMobileMenuState(false));
       });
 
-      const heroSlides = [
-  {
-    image: "/hero-flavor-1.webp",
-    label: "Featured Flavor",
-    flavor: "Strawberry Cheesecake",
-    note: "Creamy, fruity & oh-so dreamy.",
-  },
-  {
-    image: "/hero-flavor-2.webp",
-    label: "Small-Batch Favorite",
-    flavor: "Midnight Cookies",
-    note: "OREO® cookies blended into every creamy scoop.",
-  },
-  {
-    image: "/hero-flavor-3.webp",
-    label: "Rotating Monthly",
-    flavor: "Seasonal Scoops",
-    note: "New flavors worth coming back for.",
-  },
-  {
-    image: "/hero-flavor-4.webp",
-    label: "Made In Cody",
-    flavor: "Handcrafted Ice Cream",
-    note: "Fresh, thoughtful, and made with care.",
-  },
-  {
-    image: "/hero-flavor-5.webp",
-    label: "Fan Favorite",
-    flavor: "Bigg Chill Classics",
-    note: "The flavors people ask for again and again.",
-  },
-];
-
       const slides = Array.from(document.querySelectorAll(".hero-slide"));
       const dots = Array.from(document.querySelectorAll(".hero-dot"));
-      const label = document.getElementById("slideLabel");
       const prev = document.getElementById("prevSlide");
       const next = document.getElementById("nextSlide");
 
@@ -1965,16 +1867,6 @@ const tickerFlavors = [...flavors, ...flavors];
         dots.forEach((dot, dotIndex) => {
           dot.classList.toggle("active", dotIndex === activeSlide);
         });
-
-        const current = heroSlides[activeSlide];
-
-        if (label && current) {
-          label.innerHTML = `
-            <small>${current.label}</small>
-            <strong>${current.flavor}</strong>
-            <span>${current.note}</span>
-          `;
-        }
       }
 
       function startSlider() {

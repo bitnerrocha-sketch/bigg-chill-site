@@ -14,7 +14,7 @@ const cateringFaqs = [
   {
     question: "Do you cater weddings?",
     answer:
-      "Yes. Our wedding package includes custom flavor options, cart rental, pre-scooping, and serving supplies for up to 350 guests.",
+      "Yes. Our wedding package includes custom flavor options, cart rental, pre-scooping, and serving supplies for up to 150 guests.",
   },
   {
     question: "Can we request custom flavors?",
@@ -136,9 +136,17 @@ const faqSchema = {
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
+      rel="preload"
+      as="style"
       href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,700;0,800;0,900;1,800;1,900&family=Oswald:wght@400;500;600;700&family=Pacifico&display=swap"
-      rel="stylesheet"
+      onload="this.onload=null;this.rel='stylesheet'"
     />
+    <noscript>
+      <link
+        href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,700;0,800;0,900;1,800;1,900&family=Oswald:wght@400;500;600;700&family=Pacifico&display=swap"
+        rel="stylesheet"
+      />
+    </noscript>
 
     <script type="application/ld+json" set:html={JSON.stringify(cateringServiceSchema)} />
     <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
@@ -1324,6 +1332,8 @@ const faqSchema = {
               src="/logo-transparent.webp"
               alt="The Bigg Chill Handcrafted Ice Cream"
               class="brand-logo"
+              width="546"
+              height="546"
             />
           </a>
 
@@ -1370,6 +1380,8 @@ const faqSchema = {
       loading="eager"
       fetchpriority="high"
       decoding="async"
+      width="800"
+      height="1200"
     />
   </div>
 </div>
@@ -1590,7 +1602,7 @@ const faqSchema = {
               <summary>Do you cater weddings?</summary>
               <p>
                 Yes. Our wedding package includes custom flavor options, cart rental,
-                pre-scooping, and serving supplies for up to 350 guests.
+                pre-scooping, and serving supplies for up to 150 guests.
               </p>
             </details>
 
