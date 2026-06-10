@@ -871,33 +871,7 @@ const menuSchema = {
         text-align: center;
       }
 
-      .bigg-menu-page .dairy-seal-placeholder {
-        width: 160px;
-        height: 160px;
-        border-radius: 999px;
-        border: 2.5px dashed rgba(154, 134, 164, 0.55);
-        background: rgba(245, 198, 200, 0.18);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 6px;
-        color: rgba(154, 134, 164, 0.7);
-        font-family: "Nunito", Arial, sans-serif;
-        font-size: 0.7rem;
-        font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 0.08em;
-        text-align: center;
-        padding: 12px;
-        box-sizing: border-box;
-      }
-
-      .bigg-menu-page .dairy-seal-placeholder svg {
-        opacity: 0.55;
-      }
-
-      .bigg-menu-page .dairy-item-placeholder-mobile {
+      .bigg-menu-page .dairy-item-photo-mobile {
         display: none;
       }
 
@@ -1356,32 +1330,24 @@ const menuSchema = {
           grid-template-columns: 1fr;
         }
 
-        .bigg-menu-page .dairy-seal-placeholder {
+        .bigg-menu-page .dairy-seal-right {
           display: none !important;
         }
 
-        .bigg-menu-page .dairy-item-placeholder-mobile {
+        .bigg-menu-page .dairy-item-photo-mobile {
           width: 120px;
           height: 120px;
-          border-radius: 999px;
-          border: 2.5px dashed rgba(154, 134, 164, 0.55);
-          background: rgba(245, 198, 200, 0.18);
           display: flex;
-          flex-direction: column;
           align-items: center;
           justify-content: center;
-          gap: 6px;
-          color: rgba(154, 134, 164, 0.7);
-          font-family: "Nunito", Arial, sans-serif;
-          font-size: 0.65rem;
-          font-weight: 700;
-          text-transform: uppercase;
-          letter-spacing: 0.08em;
-          text-align: center;
-          padding: 10px;
-          box-sizing: border-box;
           margin: 0 auto 4px;
-          opacity: 0.8;
+        }
+
+        .bigg-menu-page .dairy-item-photo-mobile img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          display: block;
         }
 
         .bigg-menu-page .dairy-grid {
@@ -1730,12 +1696,8 @@ const menuSchema = {
                 </p>
               </div>
 
-              <div class="dairy-seal-placeholder" aria-hidden="true">
-                <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/>
-                  <circle cx="12" cy="13" r="3"/>
-                </svg>
-                Photo coming soon
+              <div class="dairy-seal dairy-seal-right">
+                <img src="/chocolate-mousse-pie-dairy-free-ice-cream-cody.webp" alt="Chocolate Mousse Pie dairy-free ice cream" class="dairy-seal-img" loading="lazy" decoding="async" width="1000" height="1000" />
               </div>
             </div>
 
@@ -1743,12 +1705,8 @@ const menuSchema = {
               {dairyFreeFlavors.map((flavor, index) => (
                 <>
                   {index === 1 && (
-                    <div class="dairy-item-placeholder-mobile" aria-hidden="true">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/>
-                        <circle cx="12" cy="13" r="3"/>
-                      </svg>
-                      Photo coming soon
+                    <div class="dairy-item-photo-mobile" aria-hidden="true">
+                      <img src="/chocolate-mousse-pie-dairy-free-ice-cream-cody.webp" alt="" loading="lazy" decoding="async" width="1000" height="1000" />
                     </div>
                   )}
                   <article class="dairy-item">
